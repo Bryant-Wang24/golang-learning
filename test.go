@@ -45,7 +45,20 @@ import "fmt"
 // }
 //输出 0 0 false ""
 
+// func main() {
+//     var d = true
+//     fmt.Println(d)
+// }
+
+// var intVal int
+// intVal :=1 // 这时候会产生编译错误，因为 intVal 已经声明，不需要重新声明
+
+// intVal := 1 相等于：
+// var intVal int
+// intVal =1
+
 func main() {
-    var d = true
-    fmt.Println(d)
+    f := "Noob" // var f string = "Noob"
+
+    fmt.Println(f)//Noob
 }
