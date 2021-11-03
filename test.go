@@ -36,11 +36,16 @@ import "fmt"
 // 字符串为 ""（空字符串）
 //
 // 以下几种类型为 nil：
-func main() {
-    var i int
-    var f float64
-    var b bool
-    var s string
-    fmt.Printf("%v %v %v %q\n", i, f, b, s)
-}
+// func main() {
+//     var i int
+//     var f float64
+//     var b bool
+//     var s string
+//     fmt.Printf("%v %v %v %q\n", i, f, b, s)
+// }
 //输出 0 0 false ""
+
+func main() {
+    var d = true
+    fmt.Println(d)
+}
