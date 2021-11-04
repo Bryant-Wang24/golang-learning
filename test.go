@@ -126,18 +126,38 @@ import "fmt"
 //     b
 //     c
 // )
-func main() {
-    const (
-            a = iota   //0
-            b          //1
-            c          //2
-            d = "ha"   //独立值，iota += 1
-            e          //"ha"   iota += 1
-            f = 100    //iota +=1
-            g          //100  iota +=1
-            h = iota   //7,恢复计数
-            i          //8
-    )
-    fmt.Println(a,b,c,d,e,f,g,h,i)
-}
+// func main() {
+//     const (
+//             a = iota   //0
+//             b          //1
+//             c          //2
+//             d = "ha"   //独立值，iota += 1
+//             e          //"ha"   iota += 1
+//             f = 100    //iota +=1
+//             g          //100  iota +=1
+//             h = iota   //7,恢复计数
+//             i          //8
+//     )
+//     fmt.Println(a,b,c,d,e,f,g,h,i)
+// }
 // 运行结果：0 1 2 ha ha 100 100 7 8
+
+
+// 左移运算符 << 是双目运算符。左移 n 位就是乘以 2 的 n 次方。 其功能把 << 左边的运算数的各二进位全部左移若干位，由 << 右边的数指定移动的位数，高位丢弃，低位补 0。
+// 右移运算符 >> 是双目运算符。右移 n 位就是除以 2 的 n 次方。 其功能是把 >> 左边的运算数的各二进位全部右移若干位， >> 右边的数指定移动的位数。
+const (
+    i=1<<iota
+    j=3<<iota
+    k
+    l
+)
+func main() {
+    fmt.Println("i=",i) //1*(2^0)
+    fmt.Println("j=",j) //3*(2^1)
+    fmt.Println("k=",k) //3*(2^2)
+    fmt.Println("l=",l) //3*(2^3)
+}
+// i= 1
+// j= 6
+// k= 12
+// l= 24
