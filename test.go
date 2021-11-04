@@ -241,28 +241,67 @@ import "fmt"
 
 
 // 逻辑运算符
-func main() {
-   var a bool = true
-   var b bool = false
-   if ( a && b ) {
-      fmt.Printf("第一行 - 条件为 true\n" )
-   }
-   if ( a || b ) {
-      fmt.Printf("第二行 - 条件为 true\n" )
-   }
-   /* 修改 a 和 b 的值 */
-   a = false
-   b = true
-   if ( a && b ) {
-      fmt.Printf("第三行 - 条件为 true\n" )
-   } else {
-      fmt.Printf("第三行 - 条件为 false\n" )
-   }
-   if ( !(a && b) ) {
-      fmt.Printf("第四行 - 条件为 true\n" )
-   }
-}
+// func main() {
+//    var a bool = true
+//    var b bool = false
+//    if ( a && b ) {
+//       fmt.Printf("第一行 - 条件为 true\n" )
+//    }
+//    if ( a || b ) {
+//       fmt.Printf("第二行 - 条件为 true\n" )
+//    }
+//    /* 修改 a 和 b 的值 */
+//    a = false
+//    b = true
+//    if ( a && b ) {
+//       fmt.Printf("第三行 - 条件为 true\n" )
+//    } else {
+//       fmt.Printf("第三行 - 条件为 false\n" )
+//    }
+//    if ( !(a && b) ) {
+//       fmt.Printf("第四行 - 条件为 true\n" )
+//    }
+// }
 // 运行结果
 // 第二行 - 条件为 true
 // 第三行 - 条件为 false
 // 第四行 - 条件为 true
+
+
+// 位运算符
+// 位运算符对整数在内存中的二进制位进行操作。
+
+// 下表列出了位运算符 &, |, 和 ^ 的计算：
+// p	q	p & q	p | q	p ^ q
+// 0	0	  0	      0	      0
+// 0	1	  0	      1	      1
+// 1	1	  1	      1	      0
+// 1	0	  0	      1	      1
+
+func main() {
+
+   var a uint = 60      /* 60 = 0011 1100 */
+   var b uint = 13      /* 13 = 0000 1101 */
+   var c uint = 0
+
+   c = a & b       /* 12 = 0000 1100 */
+   fmt.Printf("第一行 - c 的值为 %d\n", c )
+
+   c = a | b       /* 61 = 0011 1101 */
+   fmt.Printf("第二行 - c 的值为 %d\n", c )
+
+   c = a ^ b       /* 49 = 0011 0001 */
+   fmt.Printf("第三行 - c 的值为 %d\n", c )
+
+   c = a << 2     /* 240 = 1111 0000 */
+   fmt.Printf("第四行 - c 的值为 %d\n", c )
+
+   c = a >> 2     /* 15 = 0000 1111 */
+   fmt.Printf("第五行 - c 的值为 %d\n", c )
+}
+// 运行结果
+// 第一行 - c 的值为 12
+// 第二行 - c 的值为 61
+// 第三行 - c 的值为 49
+// 第四行 - c 的值为 240
+// 第五行 - c 的值为 15
