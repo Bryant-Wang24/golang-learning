@@ -321,41 +321,41 @@ import "fmt"
 // &=	    按位与后赋值	                             C &= 2 等于 C = C & 2
 // ^=	    按位异或后赋值	                             C ^= 2 等于 C = C ^ 2
 // |=	    按位或后赋值	                             C |= 2 等于 C = C | 2
-func main() {
-   var a int = 21
-   var c int
-   c =  a
-   fmt.Printf("第 1 行 - =  运算符实例，c 值为 = %d\n", c )
-
-   c +=  a
-   fmt.Printf("第 2 行 - += 运算符实例，c 值为 = %d\n", c )
-
-   c -=  a
-   fmt.Printf("第 3 行 - -= 运算符实例，c 值为 = %d\n", c )
-
-   c *=  a
-   fmt.Printf("第 4 行 - *= 运算符实例，c 值为 = %d\n", c )
-
-   c /=  a
-   fmt.Printf("第 5 行 - /= 运算符实例，c 值为 = %d\n", c )
-
-   c  = 200;
-
-   c <<=  2
-   fmt.Printf("第 6行  - <<= 运算符实例，c 值为 = %d\n", c )
-
-   c >>=  2
-   fmt.Printf("第 7 行 - >>= 运算符实例，c 值为 = %d\n", c )
-
-   c &=  2
-   fmt.Printf("第 8 行 - &= 运算符实例，c 值为 = %d\n", c )
-
-   c ^=  2
-   fmt.Printf("第 9 行 - ^= 运算符实例，c 值为 = %d\n", c )
-
-   c |=  2
-   fmt.Printf("第 10 行 - |= 运算符实例，c 值为 = %d\n", c )
-}
+// func main() {
+//    var a int = 21
+//    var c int
+//    c =  a
+//    fmt.Printf("第 1 行 - =  运算符实例，c 值为 = %d\n", c )
+//
+//    c +=  a
+//    fmt.Printf("第 2 行 - += 运算符实例，c 值为 = %d\n", c )
+//
+//    c -=  a
+//    fmt.Printf("第 3 行 - -= 运算符实例，c 值为 = %d\n", c )
+//
+//    c *=  a
+//    fmt.Printf("第 4 行 - *= 运算符实例，c 值为 = %d\n", c )
+//
+//    c /=  a
+//    fmt.Printf("第 5 行 - /= 运算符实例，c 值为 = %d\n", c )
+//
+//    c  = 200;
+//
+//    c <<=  2
+//    fmt.Printf("第 6行  - <<= 运算符实例，c 值为 = %d\n", c )
+//
+//    c >>=  2
+//    fmt.Printf("第 7 行 - >>= 运算符实例，c 值为 = %d\n", c )
+//
+//    c &=  2
+//    fmt.Printf("第 8 行 - &= 运算符实例，c 值为 = %d\n", c )
+//
+//    c ^=  2
+//    fmt.Printf("第 9 行 - ^= 运算符实例，c 值为 = %d\n", c )
+//
+//    c |=  2
+//    fmt.Printf("第 10 行 - |= 运算符实例，c 值为 = %d\n", c )
+// }
 // 运行结果
 // 第 1 行 - =  运算符实例，c 值为 = 21
 // 第 2 行 - += 运算符实例，c 值为 = 42
@@ -367,3 +367,32 @@ func main() {
 // 第 8 行 - &= 运算符实例，c 值为 = 0
 // 第 9 行 - ^= 运算符实例，c 值为 = 2
 // 第 10 行 - |= 运算符实例，c 值为 = 2
+
+
+// 其他运算符
+// 运算符	    描述	                实例
+// &	    返回变量存储地址	    &a; 将给出变量的实际地址。
+// *	    指针变量。	        *a; 是一个指针变量
+
+func main() {
+   var a int = 4
+   var b int32
+   var c float32
+   var ptr *int
+
+   /* 运算符实例 */
+   fmt.Printf("第 1 行 - a 变量类型为 = %T\n", a );
+   fmt.Printf("第 2 行 - b 变量类型为 = %T\n", b );
+   fmt.Printf("第 3 行 - c 变量类型为 = %T\n", c );
+
+   /*  & 和 * 运算符实例 */
+   ptr = &a     /* 'ptr' 包含了 'a' 变量的地址 */
+   fmt.Printf("a 的值为  %d\n", a);
+   fmt.Printf("*ptr 为 %d\n", *ptr);
+}
+// 运行结果
+// 第 1 行 - a 变量类型为 = int
+// 第 2 行 - b 变量类型为 = int32
+// 第 3 行 - c 变量类型为 = float32
+// a 的值为  4
+// *ptr 为 4
