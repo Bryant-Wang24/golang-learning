@@ -374,25 +374,35 @@ import "fmt"
 // &	    返回变量存储地址	    &a; 将给出变量的实际地址。
 // *	    指针变量。	        *a; 是一个指针变量
 
-func main() {
-   var a int = 4
-   var b int32
-   var c float32
-   var ptr *int
-
-   /* 运算符实例 */
-   fmt.Printf("第 1 行 - a 变量类型为 = %T\n", a );
-   fmt.Printf("第 2 行 - b 变量类型为 = %T\n", b );
-   fmt.Printf("第 3 行 - c 变量类型为 = %T\n", c );
-
-   /*  & 和 * 运算符实例 */
-   ptr = &a     /* 'ptr' 包含了 'a' 变量的地址 */
-   fmt.Printf("a 的值为  %d\n", a);
-   fmt.Printf("*ptr 为 %d\n", *ptr);
-}
+// func main() {
+//    var a int = 4
+//    var b int32
+//    var c float32
+//    var ptr *int
+//
+//    /* 运算符实例 */
+//    fmt.Printf("第 1 行 - a 变量类型为 = %T\n", a );
+//    fmt.Printf("第 2 行 - b 变量类型为 = %T\n", b );
+//    fmt.Printf("第 3 行 - c 变量类型为 = %T\n", c );
+//
+//    /*  & 和 * 运算符实例 */
+//    ptr = &a     /* 'ptr' 包含了 'a' 变量的地址 */
+//    fmt.Printf("a 的值为  %d\n", a);
+//    fmt.Printf("*ptr 为 %d\n", *ptr);
+// }
 // 运行结果
 // 第 1 行 - a 变量类型为 = int
 // 第 2 行 - b 变量类型为 = int32
 // 第 3 行 - c 变量类型为 = float32
 // a 的值为  4
 // *ptr 为 4
+
+
+// 运算符优先级
+// 可以通过使用括号来临时提升某个表达式的整体运算优先级。
+// 优先级	            运算符
+// 5	            * / % << >> & &^
+// 4	            + - | ^
+// 3	            == != < <= > >=
+// 2	            &&
+// 1	            ||
