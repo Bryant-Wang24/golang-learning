@@ -145,19 +145,58 @@ import "fmt"
 
 // 左移运算符 << 是双目运算符。左移 n 位就是乘以 2 的 n 次方。 其功能把 << 左边的运算数的各二进位全部左移若干位，由 << 右边的数指定移动的位数，高位丢弃，低位补 0。
 // 右移运算符 >> 是双目运算符。右移 n 位就是除以 2 的 n 次方。 其功能是把 >> 左边的运算数的各二进位全部右移若干位， >> 右边的数指定移动的位数。
-const (
-    i=1<<iota
-    j=3<<iota
-    k
-    l
-)
-func main() {
-    fmt.Println("i=",i) //1*(2^0)
-    fmt.Println("j=",j) //3*(2^1)
-    fmt.Println("k=",k) //3*(2^2)
-    fmt.Println("l=",l) //3*(2^3)
-}
+// const (
+//     i=1<<iota
+//     j=3<<iota
+//     k
+//     l
+// )
+// func main() {
+//     fmt.Println("i=",i) //1*(2^0)
+//     fmt.Println("j=",j) //3*(2^1)
+//     fmt.Println("k=",k) //3*(2^2)
+//     fmt.Println("l=",l) //3*(2^3)
+// }
 // i= 1
 // j= 6
 // k= 12
 // l= 24
+
+
+// go语言运算符
+// 算术运算符
+// 关系运算符
+// 逻辑运算符
+// 位运算符
+// 赋值运算符
+// 其他运算符
+func main() {
+
+   var a int = 21
+   var b int = 10
+   var c int
+
+   c = a + b
+   fmt.Printf("第一行 - c 的值为 %d\n", c )
+   c = a - b
+   fmt.Printf("第二行 - c 的值为 %d\n", c )
+   c = a * b
+   fmt.Printf("第三行 - c 的值为 %d\n", c )
+   c = a / b
+   fmt.Printf("第四行 - c 的值为 %d\n", c )
+   c = a % b
+   fmt.Printf("第五行 - c 的值为 %d\n", c )
+   a++
+   fmt.Printf("第六行 - a 的值为 %d\n", a )
+   a=21   // 为了方便测试，a 这里重新赋值为 21
+   a--
+   fmt.Printf("第七行 - a 的值为 %d\n", a )
+}
+// 运行结果
+// 第一行 - c 的值为 31
+// 第二行 - c 的值为 11
+// 第三行 - c 的值为 210
+// 第四行 - c 的值为 2
+// 第五行 - c 的值为 1
+// 第六行 - a 的值为 22
+// 第七行 - a 的值为 20
