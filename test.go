@@ -1,7 +1,7 @@
 
 package main
-// import "fmt"
-import "unsafe"
+import "fmt"
+// import "unsafe"
 // 可以一次声明多个变量：
 // func main() {
 //     var a string = "Runoob"
@@ -101,13 +101,43 @@ import "unsafe"
 
 // 常量还可以用作枚举：
 // 常量可以用len(), cap(), unsafe.Sizeof()函数计算表达式的值。常量表达式中，函数必须是内置函数，否则编译不过：
-const (
-    a = "abc"
-    b = len(a)
-    c = unsafe.Sizeof(a)
-)
-
-func main(){
-    println(a, b, c)
-}
+// const (
+//     a = "abc"
+//     b = len(a)
+//     c = unsafe.Sizeof(a)
+// )
+//
+// func main(){
+//     println(a, b, c)
+// }
 // abc 3 16
+
+
+// iota，特殊常量，可以认为是一个可以被编译器修改的常量。
+// iota 可以被用作枚举值：
+// const (
+//     a = iota
+//     b = iota
+//     c = iota
+// )
+// 第一个 iota 等于 0，每当 iota 在新的一行被使用时，它的值都会自动加 1；所以 a=0, b=1, c=2 可以简写为如下形式：
+// const (
+//     a = iota
+//     b
+//     c
+// )
+func main() {
+    const (
+            a = iota   //0
+            b          //1
+            c          //2
+            d = "ha"   //独立值，iota += 1
+            e          //"ha"   iota += 1
+            f = 100    //iota +=1
+            g          //100  iota +=1
+            h = iota   //7,恢复计数
+            i          //8
+    )
+    fmt.Println(a,b,c,d,e,f,g,h,i)
+}
+// 运行结果：0 1 2 ha ha 100 100 7 8
