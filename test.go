@@ -1,6 +1,6 @@
 
 package main
-import "fmt"
+// import "fmt"
 // import "unsafe"
 // 可以一次声明多个变量：
 // func main() {
@@ -406,3 +406,15 @@ import "fmt"
 // 3	            == != < <= > >=
 // 2	            &&
 // 1	            ||
+
+
+// 指针变量 * 和地址值 & 的区别：指针变量保存的是一个地址值，会分配独立的内存来存储一个整型数字。
+// 当变量前面有 * 标识时，才等同于 & 的用法，否则会直接输出一个整型数字。
+func main() {
+   var a int = 4
+   var ptr *int = &a// &符号+变量，就可以获取这个变量的内存地址
+   println("a的值为", a);    // 4
+   println("ptr为", ptr);    // 824633794744
+   println("*ptr为", *ptr);  // 4
+
+}
