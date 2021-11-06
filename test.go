@@ -480,22 +480,48 @@ import "fmt"
 // 运行结果：9 has 1 digit
 
 
-func main() {
-   /* 定义局部变量 */
-   var a int = 100
-   var b int = 200
-
-   /* 判断条件 */
-   if a == 100 {
-       /* if 条件语句为 true 执行 */
-       if b == 200 {
-          /* if 条件语句为 true 执行 */
-          fmt.Printf("a 的值为 100 ， b 的值为 200\n" );
-       }
-   }
-   fmt.Printf("a 值为 : %d\n", a );
-   fmt.Printf("b 值为 : %d\n", b );
-}
+// func main() {
+//    /* 定义局部变量 */
+//    var a int = 100
+//    var b int = 200
+//
+//    /* 判断条件 */
+//    if a == 100 {
+//        /* if 条件语句为 true 执行 */
+//        if b == 200 {
+//           /* if 条件语句为 true 执行 */
+//           fmt.Printf("a 的值为 100 ， b 的值为 200\n" );
+//        }
+//    }
+//    fmt.Printf("a 值为 : %d\n", a );
+//    fmt.Printf("b 值为 : %d\n", b );
+// }
 // 运行结果： a 的值为 100 ， b 的值为 200
 //          a 值为 : 100
 //          b 值为 : 200
+
+
+// switch 语句用于基于不同条件执行不同动作，每一个 case 分支都是唯一的，从上至下逐一测试，直到匹配为止。
+// switch 语句执行的过程从上至下，直到找到匹配项，匹配项后面也不需要再加 break。
+// switch 默认情况下 case 最后自带 break 语句，匹配成功后就不会执行其他 case，如果我们需要执行后面的 case，可以使用 fallthrough 。
+
+// type switch   switch 语句还可以被用于 type-switch 来判断某个 interface 变量中实际存储的变量类型。
+func main() {
+   var x interface{}
+
+   switch i := x.(type) {
+      case nil:
+         fmt.Printf(" x 的类型 :%T",i)
+      case int:
+         fmt.Printf("x 是 int 型")
+      case float64:
+         fmt.Printf("x 是 float64 型")
+      case func(int) float64:
+         fmt.Printf("x 是 func(int) 型")
+      case bool, string:
+         fmt.Printf("x 是 bool 或 string 型" )
+      default:
+         fmt.Printf("未知型")
+   }
+}
+// 运行结果： x 的类型 :<nil>
