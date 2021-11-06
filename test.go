@@ -36,7 +36,6 @@ import "fmt"
 //
 // 字符串为 ""（空字符串）
 //
-// 以下几种类型为 nil：
 // func main() {
 //     var i int
 //     var f float64
@@ -45,6 +44,15 @@ import "fmt"
 //     fmt.Printf("%v %v %v %q\n", i, f, b, s)
 // }
 //输出 0 0 false ""
+
+// 以下几种类型为 nil：
+// var a *int
+// var a []int
+// var a map[string] int
+// var a chan int
+// var a func(string) int
+// var a error // error 是接口
+
 
 // func main() {
 //     var d = true
