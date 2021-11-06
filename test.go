@@ -530,28 +530,66 @@ import "fmt"
 // fallthrough
 // 使用 fallthrough 会强制执行后面的 case 语句，
 // fallthrough （不会判断下一条 case 的表达式结果是否为 true。）
-func main() {
-
-    switch {
-    case false:
-            fmt.Println("1、case 条件语句为 false")
-            fallthrough
-    case true:
-            fmt.Println("2、case 条件语句为 true")
-            fallthrough
-    case false:
-            fmt.Println("3、case 条件语句为 false")
-            fallthrough
-    case true:
-            fmt.Println("4、case 条件语句为 true")
-    case false:
-            fmt.Println("5、case 条件语句为 false")
-            fallthrough
-    default:
-            fmt.Println("6、默认 case")
-    }
-}
+// func main() {
+//
+//     switch {
+//     case false:
+//             fmt.Println("1、case 条件语句为 false")
+//             fallthrough
+//     case true:
+//             fmt.Println("2、case 条件语句为 true")
+//             fallthrough
+//     case false:
+//             fmt.Println("3、case 条件语句为 false")
+//             fallthrough
+//     case true:
+//             fmt.Println("4、case 条件语句为 true")
+//     case false:
+//             fmt.Println("5、case 条件语句为 false")
+//             fallthrough
+//     default:
+//             fmt.Println("6、默认 case")
+//     }
+// }
 // 运行结果：
 // 2、case 条件语句为 true
 // 3、case 条件语句为 false
 // 4、case 条件语句为 true
+
+
+// select 是 Go 中的一个控制结构，类似于用于通信的 switch 语句。每个 case 必须是一个通信操作，要么是发送要么是接收。
+// select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞，直到有 case 可运行。一个默认的子句应该总是可运行的。
+//select基本用法：可以参考'https://www.jianshu.com/p/2a1146dc42c3'
+// select {
+// case <- chan1:
+// 如果chan1成功读到数据，则进行该case处理语句
+// case chan2 <- 1:
+// 如果成功向chan2写入数据，则进行该case处理语句
+// default:
+// 如果上面都没有成功，则进入default处理流程
+
+func main() {
+   var c1, c2, c3 chan int
+   var i1, i2 int
+   select {
+      case i1 = <-c1:
+         fmt.Printf("received ", i1, " from c1\n")
+      case c2 <- i2:
+         fmt.Printf("sent ", i2, " to c2\n")
+      case i3, ok := (<-c3):  // same as: i3, ok := <-c3
+         if ok {
+            fmt.Printf("received ", i3, " from c3\n")
+         } else {
+            fmt.Printf("c3 is closed\n")
+         }
+      default:
+         fmt.Printf("no communication\n")
+   }
+}
+// 运行结果：no communication
+
+//  如果有一个或多个IO操作可以完成，则Go运行时系统会随机的选择一个执行，
+//  否则的话，如果有default分支，则执行default分支语句，
+//  如果连default都没有，则select语句会一直阻塞，直到至少有一个IO操作可以进行
+
+
