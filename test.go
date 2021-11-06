@@ -460,13 +460,34 @@ import "fmt"
 
 // Go 的 if 还有一个强大的地方就是条件判断语句里面允许声明一个变量，
 // 这个变量的作用域只能在该条件逻辑块内，其他地方就不起作用了，
-func main() {
-    if num := 9; num < 0 {
-        fmt.Println(num, "is negative")
-    } else if num < 10 {
-        fmt.Println(num, "has 1 digit")
-    } else {
-        fmt.Println(num, "has multiple digits")
-    }
-}
+// func main() {
+//     if num := 9; num < 0 {
+//         fmt.Println(num, "is negative")
+//     } else if num < 10 {
+//         fmt.Println(num, "has 1 digit")
+//     } else {
+//         fmt.Println(num, "has multiple digits")
+//     }
+// }
 // 运行结果：9 has 1 digit
+
+
+func main() {
+   /* 定义局部变量 */
+   var a int = 100
+   var b int = 200
+
+   /* 判断条件 */
+   if a == 100 {
+       /* if 条件语句为 true 执行 */
+       if b == 200 {
+          /* if 条件语句为 true 执行 */
+          fmt.Printf("a 的值为 100 ， b 的值为 200\n" );
+       }
+   }
+   fmt.Printf("a 值为 : %d\n", a );
+   fmt.Printf("b 值为 : %d\n", b );
+}
+// 运行结果： a 的值为 100 ， b 的值为 200
+//          a 值为 : 100
+//          b 值为 : 200
