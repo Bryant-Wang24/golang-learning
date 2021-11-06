@@ -506,22 +506,52 @@ import "fmt"
 // switch 默认情况下 case 最后自带 break 语句，匹配成功后就不会执行其他 case，如果我们需要执行后面的 case，可以使用 fallthrough 。
 
 // type switch   switch 语句还可以被用于 type-switch 来判断某个 interface 变量中实际存储的变量类型。
-func main() {
-   var x interface{}
-
-   switch i := x.(type) {
-      case nil:
-         fmt.Printf(" x 的类型 :%T",i)
-      case int:
-         fmt.Printf("x 是 int 型")
-      case float64:
-         fmt.Printf("x 是 float64 型")
-      case func(int) float64:
-         fmt.Printf("x 是 func(int) 型")
-      case bool, string:
-         fmt.Printf("x 是 bool 或 string 型" )
-      default:
-         fmt.Printf("未知型")
-   }
-}
+// func main() {
+//    var x interface{}
+//
+//    switch i := x.(type) {
+//       case nil:
+//          fmt.Printf(" x 的类型 :%T",i)
+//       case int:
+//          fmt.Printf("x 是 int 型")
+//       case float64:
+//          fmt.Printf("x 是 float64 型")
+//       case func(int) float64:
+//          fmt.Printf("x 是 func(int) 型")
+//       case bool, string:
+//          fmt.Printf("x 是 bool 或 string 型" )
+//       default:
+//          fmt.Printf("未知型")
+//    }
+// }
 // 运行结果： x 的类型 :<nil>
+
+
+// fallthrough
+// 使用 fallthrough 会强制执行后面的 case 语句，
+// fallthrough （不会判断下一条 case 的表达式结果是否为 true。）
+func main() {
+
+    switch {
+    case false:
+            fmt.Println("1、case 条件语句为 false")
+            fallthrough
+    case true:
+            fmt.Println("2、case 条件语句为 true")
+            fallthrough
+    case false:
+            fmt.Println("3、case 条件语句为 false")
+            fallthrough
+    case true:
+            fmt.Println("4、case 条件语句为 true")
+    case false:
+            fmt.Println("5、case 条件语句为 false")
+            fallthrough
+    default:
+            fmt.Println("6、默认 case")
+    }
+}
+// 运行结果：
+// 2、case 条件语句为 true
+// 3、case 条件语句为 false
+// 4、case 条件语句为 true
