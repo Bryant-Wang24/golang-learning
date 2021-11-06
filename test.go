@@ -568,28 +568,38 @@ import "fmt"
 // default:
 // 如果上面都没有成功，则进入default处理流程
 
-func main() {
-   var c1, c2, c3 chan int
-   var i1, i2 int
-   select {
-      case i1 = <-c1:
-         fmt.Printf("received ", i1, " from c1\n")
-      case c2 <- i2:
-         fmt.Printf("sent ", i2, " to c2\n")
-      case i3, ok := (<-c3):  // same as: i3, ok := <-c3
-         if ok {
-            fmt.Printf("received ", i3, " from c3\n")
-         } else {
-            fmt.Printf("c3 is closed\n")
-         }
-      default:
-         fmt.Printf("no communication\n")
-   }
-}
+// func main() {
+//    var c1, c2, c3 chan int
+//    var i1, i2 int
+//    select {
+//       case i1 = <-c1:
+//          fmt.Printf("received ", i1, " from c1\n")
+//       case c2 <- i2:
+//          fmt.Printf("sent ", i2, " to c2\n")
+//       case i3, ok := (<-c3):  // same as: i3, ok := <-c3
+//          if ok {
+//             fmt.Printf("received ", i3, " from c3\n")
+//          } else {
+//             fmt.Printf("c3 is closed\n")
+//          }
+//       default:
+//          fmt.Printf("no communication\n")
+//    }
+// }
 // 运行结果：no communication
 
 //  如果有一个或多个IO操作可以完成，则Go运行时系统会随机的选择一个执行，
 //  否则的话，如果有default分支，则执行default分支语句，
 //  如果连default都没有，则select语句会一直阻塞，直到至少有一个IO操作可以进行
 
-
+// for循环
+// 计算 1 到 10 的数字之和：
+func main() {
+        sum := 0
+//      for循环的初始表达式 不能用var定义变量的形式，要用 :=
+        for i := 0; i <= 10; i++ {
+                sum += i
+        }
+        fmt.Println(sum)
+}
+// 运行结果：55
