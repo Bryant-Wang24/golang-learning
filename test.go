@@ -1,6 +1,6 @@
 
 package main
-// import "fmt"
+import "fmt"
 // import "unsafe"
 // 可以一次声明多个变量：
 // func main() {
@@ -410,11 +410,34 @@ package main
 
 // 指针变量 * 和地址值 & 的区别：指针变量保存的是一个地址值，会分配独立的内存来存储一个整型数字。
 // 当变量前面有 * 标识时，才等同于 & 的用法，否则会直接输出一个整型数字。
-func main() {
-   var a int = 4
-   var ptr *int = &a// &符号+变量，就可以获取这个变量的内存地址
-   println("a的值为", a);    // 4
-   println("ptr为", ptr);    // 824633794744
-   println("*ptr为", *ptr);  // 4
+// func main() {
+//    var a int = 4
+//    var ptr *int = &a// &符号+变量，就可以获取这个变量的内存地址
+//    println("a的值为", a);    // 4
+//    println("ptr为", ptr);    // 824633794744
+//    println("*ptr为", *ptr);  // 4
+//
+// }
 
+// 指针的4个细节
+// 1、可以通过指针改变指向值
+func main(){
+    var num int = 10
+    fmt.Println(num)//10
+
+    var ptr *int = &num
+    *ptr = 20
+    fmt.Println(num)//20,这里已经改变了指向
 }
+
+// 2、指针变量接受的一定是地址值，也就是变量前面要加&号 var ptr *int = &num
+// 3、指针变量的地址不可以不匹配
+func main(){
+    var num int = 10
+    fmt.Println(num)//10
+
+    var ptr *float32 = &num  //这行就是错误的代码，*float32意味着这个指针指向的是float32类型的数据，但是&num对应的是int类型，所以会报错
+}
+
+// 4、基本数据类型（又叫值类型），都有对应的指针类型，形式为 *数据类型，
+// 比如int对应的指针就是 *int  float32对应的指针类型就是 *float32
