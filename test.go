@@ -442,17 +442,31 @@ import "fmt"
 // // 4、基本数据类型（又叫值类型），都有对应的指针类型，形式为 *数据类型，
 // // 比如int对应的指针就是 *int  float32对应的指针类型就是 *float32
 
-func main() {
-   /* 定义局部变量 */
-   var a int = 10
-
-   /* 使用 if 语句判断布尔表达式 */
-   if a < 20 {
-       /* 如果条件为 true 则执行以下语句 */
-       fmt.Printf("a 小于 20\n" )
-   }
-   fmt.Printf("a 的值为 : %d\n", a)
-}
+// func main() {
+//    /* 定义局部变量 */
+//    var a int = 10
+//
+//    /* 使用 if 语句判断布尔表达式 */
+//    if a < 20 {
+//        /* 如果条件为 true 则执行以下语句 */
+//        fmt.Printf("a 小于 20\n" )
+//    }
+//    fmt.Printf("a 的值为 : %d\n", a)
+// }
 // 运行结果
 // a 小于 20
 // a 的值为 : 10
+
+
+// Go 的 if 还有一个强大的地方就是条件判断语句里面允许声明一个变量，
+// 这个变量的作用域只能在该条件逻辑块内，其他地方就不起作用了，
+func main() {
+    if num := 9; num < 0 {
+        fmt.Println(num, "is negative")
+    } else if num < 10 {
+        fmt.Println(num, "has 1 digit")
+    } else {
+        fmt.Println(num, "has multiple digits")
+    }
+}
+// 运行结果：9 has 1 digit
