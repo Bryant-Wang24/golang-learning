@@ -632,17 +632,17 @@ import "fmt"
 //     newMap[key] = value
 // }
 
-func main() {
-        strings := []string{"google", "runoob"}
-        for i, s := range strings {
-                fmt.Println(i, s)
-        }
-
-        numbers := [6]int{1, 2, 3, 5}
-        for i,x:= range numbers {
-                fmt.Printf("第 %d 位 x 的值 = %d\n", i,x)
-        }
-}
+// func main() {
+//         strings := []string{"google", "runoob"}
+//         for i, s := range strings {
+//                 fmt.Println(i, s)
+//         }
+//
+//         numbers := [6]int{1, 2, 3, 5}
+//         for i,x:= range numbers {
+//                 fmt.Printf("第 %d 位 x 的值 = %d\n", i,x)
+//         }
+// }
 // 运行结果
 // 0 google
 // 1 runoob
@@ -652,3 +652,31 @@ func main() {
 // 第 3 位 x 的值 = 5
 // 第 4 位 x 的值 = 0
 // 第 5 位 x 的值 = 0
+
+
+
+// Go 语言中 break 语句用于以下两方面：
+// 用于循环语句中跳出循环，并开始执行循环之后的语句。
+// break 在 switch（开关语句）中在执行一条 case 后跳出语句的作用。
+// 在多重循环中，可以用标号 label 标出想 break 的循环。
+// break结束的是离它最近的循环
+func main() {
+   /* 定义局部变量 */
+   var a int = 10
+
+   /* for 循环 */
+   for a < 20 {
+      fmt.Printf("a 的值为 : %d\n", a);
+      a++;
+      if a > 15 {
+         /* 使用 break 语句跳出循环 */
+         break;
+      }
+   }
+}
+// a 的值为 : 10
+// a 的值为 : 11
+// a 的值为 : 12
+// a 的值为 : 13
+// a 的值为 : 14
+// a 的值为 : 15
