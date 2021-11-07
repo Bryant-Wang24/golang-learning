@@ -660,23 +660,58 @@ import "fmt"
 // break 在 switch（开关语句）中在执行一条 case 后跳出语句的作用。
 // 在多重循环中，可以用标号 label 标出想 break 的循环。
 // break结束的是离它最近的循环
-func main() {
-   /* 定义局部变量 */
-   var a int = 10
-
-   /* for 循环 */
-   for a < 20 {
-      fmt.Printf("a 的值为 : %d\n", a);
-      a++;
-      if a > 15 {
-         /* 使用 break 语句跳出循环 */
-         break;
-      }
-   }
-}
+// func main() {
+//    /* 定义局部变量 */
+//    var a int = 10
+//
+//    /* for 循环 */
+//    for a < 20 {
+//       fmt.Printf("a 的值为 : %d\n", a);
+//       a++;
+//       if a > 15 {
+//          /* 使用 break 语句跳出循环 */
+//          break;
+//       }
+//    }
+// }
 // a 的值为 : 10
 // a 的值为 : 11
 // a 的值为 : 12
 // a 的值为 : 13
 // a 的值为 : 14
 // a 的值为 : 15
+
+func main() {
+
+    // 不使用标记
+    fmt.Println("---- break ----")
+    for i := 1; i <= 3; i++ {
+        fmt.Printf("i: %d\n", i)
+                for i2 := 11; i2 <= 13; i2++ {
+                        fmt.Printf("i2: %d\n", i2)
+                        break
+                }
+        }
+
+    // 使用标记,使用标记后，可以跳出所标记的循环
+    fmt.Println("---- break label ----")
+    re:
+        for i := 1; i <= 3; i++ {
+            fmt.Printf("i: %d\n", i)
+            for i2 := 11; i2 <= 13; i2++ {
+                fmt.Printf("i2: %d\n", i2)
+                break re
+            }
+        }
+}
+// 运行结果：
+// ---- break ----
+// i: 1
+// i2: 11
+// i: 2
+// i2: 11
+// i: 3
+// i2: 11
+// ---- break label ----
+// i: 1
+// i2: 11
