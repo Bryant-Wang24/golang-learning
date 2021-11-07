@@ -594,12 +594,34 @@ import "fmt"
 
 // for循环
 // 计算 1 到 10 的数字之和：
-func main() {
-        sum := 0
-//      for循环的初始表达式 不能用var定义变量的形式，要用 :=
-        for i := 0; i <= 10; i++ {
-                sum += i
-        }
-        fmt.Println(sum)
-}
+// func main() {
+//         sum := 0
+// //      for循环的初始表达式 不能用var定义变量的形式，要用 :=
+//         for i := 0; i <= 10; i++ {
+//                 sum += i
+//         }
+//         fmt.Println(sum)
+// }
 // 运行结果：55
+
+func main(){
+    //定义一个字符串
+    var str string = "hello golang"
+    //方式1：普通for循环，按照字节进行遍历输出的（str有中文会乱码）
+    for i:=0;i<len(str);i++ {
+        fmt.Printf("%c \n",str[i])//i:理解为字符串的下标
+    }
+}
+// 运行结果
+// h
+// e
+// l
+// l
+// o
+//
+// g
+// o
+// l
+// a
+// n
+// g
