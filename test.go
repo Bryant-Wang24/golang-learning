@@ -604,14 +604,14 @@ import "fmt"
 // }
 // 运行结果：55
 
-func main(){
-    //定义一个字符串
-    var str string = "hello golang"
-    //方式1：普通for循环，按照字节进行遍历输出的（str有中文会乱码）
-    for i:=0;i<len(str);i++ {
-        fmt.Printf("%c \n",str[i])//i:理解为字符串的下标
-    }
-}
+// func main(){
+//     //定义一个字符串
+//     var str string = "hello golang"
+//     //方式1：普通for循环，按照字节进行遍历输出的（str有中文会乱码）
+//     for i:=0;i<len(str);i++ {
+//         fmt.Printf("%c \n",str[i])//i:理解为字符串的下标
+//     }
+// }
 // 运行结果
 // h
 // e
@@ -625,3 +625,30 @@ func main(){
 // a
 // n
 // g
+
+
+// for 循环的 range 格式可以对 slice、map、数组、字符串等进行迭代循环。格式如下：
+// for key, value := range oldMap {
+//     newMap[key] = value
+// }
+
+func main() {
+        strings := []string{"google", "runoob"}
+        for i, s := range strings {
+                fmt.Println(i, s)
+        }
+
+        numbers := [6]int{1, 2, 3, 5}
+        for i,x:= range numbers {
+                fmt.Printf("第 %d 位 x 的值 = %d\n", i,x)
+        }
+}
+// 运行结果
+// 0 google
+// 1 runoob
+// 第 0 位 x 的值 = 1
+// 第 1 位 x 的值 = 2
+// 第 2 位 x 的值 = 3
+// 第 3 位 x 的值 = 5
+// 第 4 位 x 的值 = 0
+// 第 5 位 x 的值 = 0
