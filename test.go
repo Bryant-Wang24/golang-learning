@@ -699,14 +699,14 @@ import "fmt"
 // continue 语句 有点像 break 语句。
 // 但是 continue 不是跳出循环，而是跳过当前循环执行下一次循环语句。
 // continue跳出的是离他近的那个循环
-func main() {
-    for i := 0; i<50; i++ {
-        if i%6!=0 {
-            continue
-        }
-        fmt.Printf("i的值:%d\n",i)
-    }
-}
+// func main() {
+//     for i := 0; i<50; i++ {
+//         if i%6!=0 {
+//             continue
+//         }
+//         fmt.Printf("i的值:%d\n",i)
+//     }
+// }
 // 运行结果：
 // i的值:0
 // i的值:6
@@ -717,3 +717,50 @@ func main() {
 // i的值:36
 // i的值:42
 // i的值:48
+
+// 在多重循环中，continue默认跳出的是离他近的那个循环
+// 也可以用标号 label 标出想 continue 的循环。
+func main() {
+
+    // 不使用标记
+    fmt.Println("---- continue ---- ")
+    for i := 1; i <= 3; i++ {
+        fmt.Printf("i: %d\n", i)
+            for i2 := 11; i2 <= 13; i2++ {
+                fmt.Printf("i2: %d\n", i2)
+                continue
+            }
+    }
+
+    // 使用标记
+    fmt.Println("---- continue label ----")
+    re:
+        for i := 1; i <= 3; i++ {
+            fmt.Printf("i: %d\n", i)
+                for i2 := 11; i2 <= 13; i2++ {
+                    fmt.Printf("i2: %d\n", i2)
+                    continue re
+                }
+        }
+}
+// 运行结果：
+// ---- continue ---- 
+// i: 1  
+// i2: 11
+// i2: 12
+// i2: 13
+// i: 2  
+// i2: 11
+// i2: 12
+// i2: 13
+// i: 3
+// i2: 11
+// i2: 12
+// i2: 13
+// ---- continue label ----
+// i: 1
+// i2: 11
+// i: 2
+// i2: 11
+// i: 3
+// i2: 11
