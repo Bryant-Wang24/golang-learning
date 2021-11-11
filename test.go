@@ -819,12 +819,46 @@ import "fmt"
 // 最大值是 : 200
 
 // 函数返回多个值
-func swap(x, y string) (string, string) {
-    return y, x
- }
- 
- func main() {
-    a, b := swap("Google", "Runoob")
-    fmt.Println(a, b)
- }
+// func swap(x, y string) (string, string) {
+//     return y, x
+//  }
+
+//  func main() {
+//     a, b := swap("Google", "Runoob")
+//     fmt.Println(a, b)
+//  }
 //  Runoob Google
+
+// 调用函数，可以通过两种方式来传递参数：值传递和引用传递
+// 值传递：值传递是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，
+// 将不会影响到实际参数。
+func main() {
+   /* 定义局部变量 */
+   var a int = 100
+   var b int = 200
+
+   fmt.Printf("交换前 a 的值为 : %d\n", a )
+   fmt.Printf("交换前 b 的值为 : %d\n", b )
+
+   /* 通过调用函数来交换值 */
+   swap(a, b)
+
+   fmt.Printf("交换后 a 的值 : %d\n", a )
+   fmt.Printf("交换后 b 的值 : %d\n", b )
+}
+
+/* 定义相互交换值的函数 */
+func swap(x, y int) int {
+   var temp int
+
+   temp = x /* 保存 x 的值 */
+   x = y    /* 将 y 值赋给 x */
+   y = temp /* 将 temp 值赋给 y*/
+
+   return temp;
+}
+// 运行结果：
+// 交换前 a 的值为 : 100
+// 交换前 b 的值为 : 200
+// 交换后 a 的值 : 100
+// 交换后 b 的值 : 200
