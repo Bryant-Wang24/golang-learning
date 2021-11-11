@@ -720,36 +720,36 @@ import "fmt"
 
 // 在多重循环中，continue默认跳出的是离他近的那个循环
 // 也可以用标号 label 标出想 continue 的循环。
-func main() {
+// func main() {
 
-    // 不使用标记
-    fmt.Println("---- continue ---- ")
-    for i := 1; i <= 3; i++ {
-        fmt.Printf("i: %d\n", i)
-            for i2 := 11; i2 <= 13; i2++ {
-                fmt.Printf("i2: %d\n", i2)
-                continue
-            }
-    }
+//     // 不使用标记
+//     fmt.Println("---- continue ---- ")
+//     for i := 1; i <= 3; i++ {
+//         fmt.Printf("i: %d\n", i)
+//             for i2 := 11; i2 <= 13; i2++ {
+//                 fmt.Printf("i2: %d\n", i2)
+//                 continue
+//             }
+//     }
 
-    // 使用标记
-    fmt.Println("---- continue label ----")
-    re:
-        for i := 1; i <= 3; i++ {
-            fmt.Printf("i: %d\n", i)
-                for i2 := 11; i2 <= 13; i2++ {
-                    fmt.Printf("i2: %d\n", i2)
-                    continue re
-                }
-        }
-}
+//     // 使用标记
+//     fmt.Println("---- continue label ----")
+//     re:
+//         for i := 1; i <= 3; i++ {
+//             fmt.Printf("i: %d\n", i)
+//                 for i2 := 11; i2 <= 13; i2++ {
+//                     fmt.Printf("i2: %d\n", i2)
+//                     continue re
+//                 }
+//         }
+// }
 // 运行结果：
-// ---- continue ---- 
-// i: 1  
+// ---- continue ----
+// i: 1
 // i2: 11
 // i2: 12
 // i2: 13
-// i: 2  
+// i: 2
 // i2: 11
 // i2: 12
 // i2: 13
@@ -764,3 +764,28 @@ func main() {
 // i2: 11
 // i: 3
 // i2: 11
+
+// goto语句
+// Go 语言的 goto 语句可以无条件地转移到过程中指定的行。
+// goto 语句通常与条件语句配合使用。可用来实现条件转移， 构成循环，跳出循环体等功能。
+// 但是，在结构化程序设计中一般不主张使用 goto 语句， 以免造成程序流程的混乱，使理解和调试程序都产生困难。
+func main() {
+    /* 定义局部变量 */
+    var a int = 10
+ 
+    /* 循环 */
+    LOOP: for a < 15 {
+       if a == 12 {
+          /* 跳过迭代 */
+          a = a + 1
+          goto LOOP
+       }
+       fmt.Printf("a的值为 : %d\n", a)
+       a++    
+    }  
+ }
+// 运行结果：
+// a的值为 : 10
+// a的值为 : 11
+// a的值为 : 13
+// a的值为 : 14
