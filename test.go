@@ -1,6 +1,7 @@
-
 package main
+
 import "fmt"
+
 // import "unsafe"
 // 可以一次声明多个变量：
 // func main() {
@@ -10,7 +11,6 @@ import "fmt"
 //     var b, c int = 1, 2
 //     fmt.Println(b, c)
 // }
-
 
 // 零值就是变量没有做初始化时系统默认设置的值。
 // func main() {
@@ -27,8 +27,6 @@ import "fmt"
 //     var c bool
 //     fmt.Println(c)//false
 // }
-
-
 
 // 数值类型（包括complex64/128）为 0
 //
@@ -52,7 +50,6 @@ import "fmt"
 // var a chan int
 // var a func(string) int
 // var a error // error 是接口
-
 
 // func main() {
 //     var d = true
@@ -106,7 +103,6 @@ import "fmt"
 // 面积为 : 50
 // 1 false str
 
-
 // 常量还可以用作枚举：
 // 常量可以用len(), cap(), unsafe.Sizeof()函数计算表达式的值。常量表达式中，函数必须是内置函数，否则编译不过：
 // const (
@@ -119,7 +115,6 @@ import "fmt"
 //     println(a, b, c)
 // }
 // abc 3 16
-
 
 // iota，特殊常量，可以认为是一个可以被编译器修改的常量。
 // iota 可以被用作枚举值：
@@ -150,7 +145,6 @@ import "fmt"
 // }
 // 运行结果：0 1 2 ha ha 100 100 7 8
 
-
 // 左移运算符 << 是双目运算符。左移 n 位就是乘以 2 的 n 次方。 其功能把 << 左边的运算数的各二进位全部左移若干位，由 << 右边的数指定移动的位数，高位丢弃，低位补 0。
 // 右移运算符 >> 是双目运算符。右移 n 位就是除以 2 的 n 次方。 其功能是把 >> 左边的运算数的各二进位全部右移若干位， >> 右边的数指定移动的位数。
 // const (
@@ -169,7 +163,6 @@ import "fmt"
 // j= 6
 // k= 12
 // l= 24
-
 
 // go语言运算符
 // 算术运算符
@@ -247,7 +240,6 @@ import "fmt"
 // 第四行 - a 小于等于 b
 // 第五行 - b 大于等于 a
 
-
 // 逻辑运算符
 // func main() {
 //    var a bool = true
@@ -274,7 +266,6 @@ import "fmt"
 // 第二行 - 条件为 true
 // 第三行 - 条件为 false
 // 第四行 - 条件为 true
-
 
 // 位运算符
 // 位运算符对整数在内存中的二进制位进行操作。
@@ -313,7 +304,6 @@ import "fmt"
 // 第三行 - c 的值为 49
 // 第四行 - c 的值为 240
 // 第五行 - c 的值为 15
-
 
 // 赋值运算符
 // 下表列出了所有Go语言的赋值运算符。
@@ -376,7 +366,6 @@ import "fmt"
 // 第 9 行 - ^= 运算符实例，c 值为 = 2
 // 第 10 行 - |= 运算符实例，c 值为 = 2
 
-
 // 其他运算符
 // 运算符	    描述	                实例
 // &	    返回变量存储地址	    &a; 将给出变量的实际地址。
@@ -405,7 +394,6 @@ import "fmt"
 // a 的值为  4
 // *ptr 为 4
 
-
 // 运算符优先级
 // 可以通过使用括号来临时提升某个表达式的整体运算优先级。
 // 优先级	            运算符
@@ -414,7 +402,6 @@ import "fmt"
 // 3	            == != < <= > >=
 // 2	            &&
 // 1	            ||
-
 
 // 指针变量 * 和地址值 & 的区别：指针变量保存的是一个地址值，会分配独立的内存来存储一个整型数字。
 // 当变量前面有 * 标识时，才等同于 & 的用法，否则会直接输出一个整型数字。
@@ -465,7 +452,6 @@ import "fmt"
 // a 小于 20
 // a 的值为 : 10
 
-
 // Go 的 if 还有一个强大的地方就是条件判断语句里面允许声明一个变量，
 // 这个变量的作用域只能在该条件逻辑块内，其他地方就不起作用了，
 // func main() {
@@ -478,7 +464,6 @@ import "fmt"
 //     }
 // }
 // 运行结果：9 has 1 digit
-
 
 // func main() {
 //    /* 定义局部变量 */
@@ -499,7 +484,6 @@ import "fmt"
 // 运行结果： a 的值为 100 ， b 的值为 200
 //          a 值为 : 100
 //          b 值为 : 200
-
 
 // switch 语句用于基于不同条件执行不同动作，每一个 case 分支都是唯一的，从上至下逐一测试，直到匹配为止。
 // switch 语句执行的过程从上至下，直到找到匹配项，匹配项后面也不需要再加 break。
@@ -525,7 +509,6 @@ import "fmt"
 //    }
 // }
 // 运行结果： x 的类型 :<nil>
-
 
 // fallthrough
 // 使用 fallthrough 会强制执行后面的 case 语句，
@@ -555,7 +538,6 @@ import "fmt"
 // 2、case 条件语句为 true
 // 3、case 条件语句为 false
 // 4、case 条件语句为 true
-
 
 // select 是 Go 中的一个控制结构，类似于用于通信的 switch 语句。每个 case 必须是一个通信操作，要么是发送要么是接收。
 // select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞，直到有 case 可运行。一个默认的子句应该总是可运行的。
@@ -626,7 +608,6 @@ import "fmt"
 // n
 // g
 
-
 // for 循环的 range 格式可以对 slice、map、数组、字符串等进行迭代循环。格式如下：
 // for key, value := range oldMap {
 //     newMap[key] = value
@@ -652,8 +633,6 @@ import "fmt"
 // 第 3 位 x 的值 = 5
 // 第 4 位 x 的值 = 0
 // 第 5 位 x 的值 = 0
-
-
 
 // Go 语言中 break 语句用于以下两方面：
 // 用于循环语句中跳出循环，并开始执行循环之后的语句。
@@ -681,29 +660,29 @@ import "fmt"
 // a 的值为 : 14
 // a 的值为 : 15
 
-func main() {
+// func main() {
 
-    // 不使用标记
-    fmt.Println("---- break ----")
-    for i := 1; i <= 3; i++ {
-        fmt.Printf("i: %d\n", i)
-                for i2 := 11; i2 <= 13; i2++ {
-                        fmt.Printf("i2: %d\n", i2)
-                        break
-                }
-        }
+//     // 不使用标记
+//     fmt.Println("---- break ----")
+//     for i := 1; i <= 3; i++ {
+//         fmt.Printf("i: %d\n", i)
+//                 for i2 := 11; i2 <= 13; i2++ {
+//                         fmt.Printf("i2: %d\n", i2)
+//                         break
+//                 }
+//         }
 
-    // 使用标记,使用标记后，可以跳出所标记的循环
-    fmt.Println("---- break label ----")
-    re:
-        for i := 1; i <= 3; i++ {
-            fmt.Printf("i: %d\n", i)
-            for i2 := 11; i2 <= 13; i2++ {
-                fmt.Printf("i2: %d\n", i2)
-                break re
-            }
-        }
-}
+//     // 使用标记,使用标记后，可以跳出所标记的循环
+//     fmt.Println("---- break label ----")
+//     re:
+//         for i := 1; i <= 3; i++ {
+//             fmt.Printf("i: %d\n", i)
+//             for i2 := 11; i2 <= 13; i2++ {
+//                 fmt.Printf("i2: %d\n", i2)
+//                 break re
+//             }
+//         }
+// }
 // 运行结果：
 // ---- break ----
 // i: 1
@@ -715,3 +694,26 @@ func main() {
 // ---- break label ----
 // i: 1
 // i2: 11
+
+// continue
+// continue 语句 有点像 break 语句。
+// 但是 continue 不是跳出循环，而是跳过当前循环执行下一次循环语句。
+// continue跳出的是离他近的那个循环
+func main() {
+    for i := 0; i<50; i++ {
+        if i%6!=0 {
+            continue
+        }
+        fmt.Printf("i的值:%d\n",i)
+    }
+}
+// 运行结果：
+// i的值:0
+// i的值:6
+// i的值:12
+// i的值:18
+// i的值:24
+// i的值:30
+// i的值:36
+// i的值:42
+// i的值:48
