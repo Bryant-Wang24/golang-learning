@@ -899,10 +899,34 @@ import "fmt"
 
 // Go 语言支持匿名函数，可作为闭包。
 // 匿名函数是一个"内联"语句或表达式。匿名函数的优越性在于可以直接使用函数内的变量，不必申明。
-func main(){
-//     定义匿名函数,定义的同时调用
-    result := func (num1 int,num2 int) int {
-        return num1 + num2
-    }(10,20)
-    fmt.Println(result)
+// func main(){
+// //     定义匿名函数,定义的同时调用
+//     result := func (num1 int,num2 int) int {
+//         return num1 + num2
+//     }(10,20)
+//     fmt.Println(result)
+// }
+
+
+// 闭包：闭包就是一个函数和与其相关的引用环境组合的一个整体
+// getSum函数的返回值为一个函数，这个函数的参数是一个int类型的参数，返回值是int类型
+func getSum() func(int) int {
+    var sum int = 0
+    return func (num int) int {
+        sum = sum + num
+        return sum
+    }
 }
+// 闭包：返回值的匿名函数 + 匿名函数以外的变量num
+func main () {
+    f:=getSum()
+    fmt.Println(f(1))
+    fmt.Println(f(2))
+    fmt.Println(f(3))
+    fmt.Println(f(4))
+}
+// 运行结果：
+// 1
+// 3
+// 6
+// 10
