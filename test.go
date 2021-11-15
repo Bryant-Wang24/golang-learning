@@ -910,23 +910,45 @@ import "fmt"
 
 // 闭包：闭包就是一个函数和与其相关的引用环境组合的一个整体
 // getSum函数的返回值为一个函数，这个函数的参数是一个int类型的参数，返回值是int类型
-func getSum() func(int) int {
-    var sum int = 0
-    return func (num int) int {
-        sum = sum + num
-        return sum
-    }
-}
-// 闭包：返回值的匿名函数 + 匿名函数以外的变量num
-func main () {
-    f:=getSum()
-    fmt.Println(f(1))
-    fmt.Println(f(2))
-    fmt.Println(f(3))
-    fmt.Println(f(4))
-}
+// func getSum() func(int) int {
+//     var sum int = 0
+//     return func (num int) int {
+//         sum = sum + num
+//         return sum
+//     }
+// }
+// // 闭包：返回值的匿名函数 + 匿名函数以外的变量num
+// func main () {
+//     f:=getSum()
+//     fmt.Println(f(1))
+//     fmt.Println(f(2))
+//     fmt.Println(f(3))
+//     fmt.Println(f(4))
+// }
 // 运行结果：
 // 1
 // 3
 // 6
 // 10
+
+func main(){
+    fmt.Println(add(10,20))
+}
+
+func add(num1,num2 int) int {
+// 在golang中，程序遇到defer关键字，不会立即执行defer，
+// 而是将defer后面的语句压入一个栈中，然后继续执行函数后面的语句
+    defer fmt.Println("num1=",num1)
+    defer fmt.Println("num2=",num2)
+//     栈的特点是先进后出
+// 在函数执行完毕后，从栈中取出语句
+    var sum int =num1 + num2
+    fmt.Println("sum=",sum)
+    return sum
+}
+// 运行结果：
+// sum= 30
+// num2= 20
+// num1= 10
+// 30
+
