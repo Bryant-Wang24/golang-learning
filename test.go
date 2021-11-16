@@ -980,8 +980,25 @@ import "fmt"
 
 // 字符串相关函数
 // 1、统计字符串的长度，按字节进行统计：len(str)
-func main(){
-    str:="golang你好"
-    fmt.Println(len(str))//12
-}
+// func main(){
+//     str:="golang你好"
+//     fmt.Println(len(str))//12
+// }
 
+//字符串遍历
+// （1）方式一：for-range键值循环：
+func main(){
+    str:="golang你好"//在golang中，汉字是utf-8字符集，一个汉字3个字节
+    for i,value:=range str {
+        fmt.Printf("索引为：%d,具体的值为：%c \n",i,value)
+    }
+}
+// 运行结果：
+// 索引为：0,具体的值为：g
+// 索引为：1,具体的值为：o
+// 索引为：2,具体的值为：l
+// 索引为：3,具体的值为：a
+// 索引为：4,具体的值为：n
+// 索引为：5,具体的值为：g
+// 索引为：6,具体的值为：你
+// 索引为：9,具体的值为：好
