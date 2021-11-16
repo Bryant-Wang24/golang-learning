@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "strconv"
+    "strings"
 )
 
 // import "unsafe"
@@ -1033,6 +1034,10 @@ func main(){
     //整数转字符串
     str1:=strconv.Itoa(88)
     fmt.Println(str1)//88
+
+    //统计一个字符串有几个指定的子符串
+    count:= strings.Count("golang","g")//在golang这个字符串中有几个g
+    fmt.Println(count)//2
 }
 
 
