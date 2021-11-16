@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "strconv"
+)
 
 // import "unsafe"
 // 可以一次声明多个变量：
@@ -1004,13 +1007,13 @@ import "fmt"
 // 索引为：9,具体的值为：好
 
 // 方式2：切片 利用r:=[]rune(str)
-func main(){
-    str:="golang你好"
-    r:=[]rune(str)
-    for i:=0;i<len(r);i++ {
-        fmt.Printf("%c \n",r[i])
-    }
-}
+// func main(){
+//     str:="golang你好"
+//     r:=[]rune(str)
+//     for i:=0;i<len(r);i++ {
+//         fmt.Printf("%c \n",r[i])
+//     }
+// }
 // g
 // o
 // l
@@ -1019,5 +1022,17 @@ func main(){
 // g
 // 你
 // 好
+
+
+// 类型转换
+func main(){
+    // 字符串转整数：
+    num1,_:=strconv.Atoi("666")
+    fmt.Println(num1)//666
+
+    //整数转字符串
+    str1:=strconv.Itoa(88)
+    fmt.Println(str1)//88
+}
 
 
