@@ -953,26 +953,35 @@ import "fmt"
 // 30
 
 
-func main(){
-    fmt.Println(add(10,20))
-}
-
-func add(num1,num2 int) int {
-// 在golang中，程序遇到defer关键字，不会立即执行defer，
-// 而是将defer后面的语句压入一个栈中，然后继续执行函数后面的语句
-    defer fmt.Println("num1=",num1)
-    defer fmt.Println("num2=",num2)
-//     程序遇到defer关键字，会将后面的代码语句压入栈中，
-//     也会将相关的值拷贝入栈中，不会随着函数后面的变化而变化
-    num1+=90
-    num2+=50
-    var sum int =num1 + num2
-    fmt.Println("sum=",sum)
-    return sum
-}
+// func main(){
+//     fmt.Println(add(10,20))
+// }
+//
+// func add(num1,num2 int) int {
+// // 在golang中，程序遇到defer关键字，不会立即执行defer，
+// // 而是将defer后面的语句压入一个栈中，然后继续执行函数后面的语句
+//     defer fmt.Println("num1=",num1)
+//     defer fmt.Println("num2=",num2)
+// //     程序遇到defer关键字，会将后面的代码语句压入栈中，
+// //     也会将相关的值拷贝入栈中，不会随着函数后面的变化而变化
+//     num1+=90
+//     num2+=50
+//     var sum int =num1 + num2
+//     fmt.Println("sum=",sum)
+//     return sum
+// }
 
 // 运行结果：
 // sum= 170
 // num2= 20
 // num1= 10
 // 170
+
+
+// 字符串相关函数
+// 1、统计字符串的长度，按字节进行统计：len(str)
+func main(){
+    str:="golang你好"
+    fmt.Println(len(str))//12
+}
+
