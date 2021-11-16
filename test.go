@@ -1038,6 +1038,13 @@ func main(){
     //统计一个字符串有几个指定的子符串
     count:= strings.Count("golang","g")//在golang这个字符串中有几个g
     fmt.Println(count)//2
+
+    //不区分大小写的字符串比较
+    flag:=strings.EqualFold("hello","HELLO")
+    fmt.Println(flag)//true
+
+    //区分大小写的字符串比较
+    fmt.Println("hello"=="HELLO")//false
 }
 
 
