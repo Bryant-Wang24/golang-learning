@@ -987,12 +987,12 @@ import "fmt"
 
 //字符串遍历
 // （1）方式一：for-range键值循环：
-func main(){
-    str:="golang你好"//在golang中，汉字是utf-8字符集，一个汉字3个字节
-    for i,value:=range str {
-        fmt.Printf("索引为：%d,具体的值为：%c \n",i,value)
-    }
-}
+// func main(){
+//     str:="golang你好"//在golang中，汉字是utf-8字符集，一个汉字3个字节
+//     for i,value:=range str {
+//         fmt.Printf("索引为：%d,具体的值为：%c \n",i,value)
+//     }
+// }
 // 运行结果：
 // 索引为：0,具体的值为：g
 // 索引为：1,具体的值为：o
@@ -1002,3 +1002,22 @@ func main(){
 // 索引为：5,具体的值为：g
 // 索引为：6,具体的值为：你
 // 索引为：9,具体的值为：好
+
+// 方式2：切片 利用r:=[]rune(str)
+func main(){
+    str:="golang你好"
+    r:=[]rune(str)
+    for i:=0;i<len(r);i++ {
+        fmt.Printf("%c \n",r[i])
+    }
+}
+// g
+// o
+// l
+// a
+// n
+// g
+// 你
+// 好
+
+
