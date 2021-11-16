@@ -1045,6 +1045,9 @@ func main(){
 
     //区分大小写的字符串比较
     fmt.Println("hello"=="HELLO")//false
+
+    //返回字符串在指定字符串中第一次出现的索引值，如果没有返回-1
+    fmt.Println(strings.Index("golang","n"))//4
 }
 
 
