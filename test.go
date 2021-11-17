@@ -1060,6 +1060,11 @@ func main(){
 //     按照某个指定的字符，为分割标识，将一个字符串拆分为字符串数组
     str4:=strings.Split("go-python-java","-")
     fmt.Println(str4)//[go python java]
+
+//     将字符串进行大小写的转换
+    str5:=strings.ToLower("Go")
+    str6:=strings.ToUpper("go")
+    fmt.Println(str5,str6)//go GO
 }
 
 
