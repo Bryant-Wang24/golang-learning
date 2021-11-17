@@ -1074,6 +1074,12 @@ func main(){
 //     将字符串两边指定的字符去掉
     str8:=strings.Trim("~~golang~~","~")
     fmt.Println(str8)//golang
+
+//     将字符串左边指定的字符去掉
+    str9:=strings.TrimLeft("~golang~","~")
+//     将字符串右边指定的字符去掉
+    str10:=strings.TrimRight("~golang~","~")
+    fmt.Println(str9,str10)//golang~ ~golang
 }
 
 
