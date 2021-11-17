@@ -1065,6 +1065,11 @@ func main(){
     str5:=strings.ToLower("Go")
     str6:=strings.ToUpper("go")
     fmt.Println(str5,str6)//go GO
+
+
+//     将字符串两边的空格去掉
+    str7:=strings.TrimSpace("   go and java  ")
+    fmt.Println(str7)//go and java
 }
 
 
