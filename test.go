@@ -1070,6 +1070,10 @@ func main(){
 //     将字符串两边的空格去掉
     str7:=strings.TrimSpace("   go and java  ")
     fmt.Println(str7)//go and java
+
+//     将字符串两边指定的字符去掉
+    str8:=strings.Trim("~~golang~~","~")
+    fmt.Println(str8)//golang
 }
 
 
