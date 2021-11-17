@@ -1084,6 +1084,11 @@ func main(){
 //     判断字符串是否以指定的字符串开头
     str11:=strings.HasPrefix("goandjava","go")
     fmt.Println(str11)//true
+
+
+//     判断字符串是否以指定的字符串结尾
+    str12:=strings.HasSuffix("goandjava","va")
+    fmt.Println(str12)//true
 }
 
 
