@@ -1048,6 +1048,13 @@ func main(){
 
     //返回字符串在指定字符串中第一次出现的索引值，如果没有返回-1
     fmt.Println(strings.Index("golang","n"))//4
+
+//     字符串的替换
+//把字符串“goandjavagogo”里面的go替换成golang,最后的参数表示替换的数量，-1表示替换全部
+    str2:=strings.Replace("goandjavagogo","go","golang",-1)
+    str3:=strings.Replace("goandjavagogo","go","golang",2)
+    fmt.Println(str2)//golangandjavagolanggolang
+    fmt.Println(str3)//golangandjavagolanggo
 }
 
 
