@@ -1080,6 +1080,10 @@ func main(){
 //     将字符串右边指定的字符去掉
     str10:=strings.TrimRight("~golang~","~")
     fmt.Println(str9,str10)//golang~ ~golang
+
+//     判断字符串是否以指定的字符串开头
+    str11:=strings.HasPrefix("goandjava","go")
+    fmt.Println(str11)//true
 }
 
 
