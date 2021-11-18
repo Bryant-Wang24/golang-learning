@@ -1106,4 +1106,12 @@ func main(){
     // 时：8
     // 分：32
     // 秒：30
+    
+    // 日期的格式化:
+    // 将日期以年月日分秒按照格式输出为字符串
+    // Printf将字符串直接输出:
+    fmt.Printf("当前年月日:%d-%d-%d 时分秒:%d:%d:%d  \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
+    // Sprintf可以得到这个字符串,以便后续使用
+    datastr:=fmt.Sprintf("当前年月日:%d-%d-%d 时分秒:%d-%d-%d \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
+    fmt.Println(datastr)
 }
