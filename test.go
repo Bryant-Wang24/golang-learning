@@ -1,9 +1,8 @@
 package main
 
 import (
-    "fmt"
-    "strconv"
-    "strings"
+	"fmt"
+	"time"
 )
 
 // import "unsafe"
@@ -867,7 +866,6 @@ import (
 // 交换后 a 的值 : 100
 // 交换后 b 的值 : 200
 
-
 // 引用传递：引用传递是指在调用函数时将实际参数的地址传递到函数中，那么在函数中对参数所进行的修改，
 // 将影响到实际参数。
 // func main() {
@@ -900,7 +898,6 @@ import (
 // 交换后，a 的值 : 200
 // 交换后，b 的值 : 100
 
-
 // Go 语言支持匿名函数，可作为闭包。
 // 匿名函数是一个"内联"语句或表达式。匿名函数的优越性在于可以直接使用函数内的变量，不必申明。
 // func main(){
@@ -910,7 +907,6 @@ import (
 //     }(10,20)
 //     fmt.Println(result)
 // }
-
 
 // 闭包：闭包就是一个函数和与其相关的引用环境组合的一个整体
 // getSum函数的返回值为一个函数，这个函数的参数是一个int类型的参数，返回值是int类型
@@ -956,7 +952,6 @@ import (
 // num1= 10
 // 30
 
-
 // func main(){
 //     fmt.Println(add(10,20))
 // }
@@ -980,7 +975,6 @@ import (
 // num2= 20
 // num1= 10
 // 170
-
 
 // 字符串相关函数
 // 1、统计字符串的长度，按字节进行统计：len(str)
@@ -1024,71 +1018,92 @@ import (
 // 你
 // 好
 
-
 // 类型转换
+// func main(){
+//     // 字符串转整数：
+//     num1,_:=strconv.Atoi("666")
+//     fmt.Println(num1)//666
+//
+//     //整数转字符串
+//     str1:=strconv.Itoa(88)
+//     fmt.Println(str1)//88
+//
+//     //统计一个字符串有几个指定的子符串
+//     count:= strings.Count("golang","g")//在golang这个字符串中有几个g
+//     fmt.Println(count)//2
+//
+//     //不区分大小写的字符串比较
+//     flag:=strings.EqualFold("hello","HELLO")
+//     fmt.Println(flag)//true
+//
+//     //区分大小写的字符串比较
+//     fmt.Println("hello"=="HELLO")//false
+//
+//     //返回字符串在指定字符串中第一次出现的索引值，如果没有返回-1
+//     fmt.Println(strings.Index("golang","n"))//4
+//
+// //     字符串的替换
+// //把字符串“goandjavagogo”里面的go替换成golang,最后的参数表示替换的数量，-1表示替换全部
+//     str2:=strings.Replace("goandjavagogo","go","golang",-1)
+//     str3:=strings.Replace("goandjavagogo","go","golang",2)
+//     fmt.Println(str2)//golangandjavagolanggolang
+//     fmt.Println(str3)//golangandjavagolanggo
+//
+//
+// //     按照某个指定的字符，为分割标识，将一个字符串拆分为字符串数组
+//     str4:=strings.Split("go-python-java","-")
+//     fmt.Println(str4)//[go python java]
+//
+// //     将字符串进行大小写的转换
+//     str5:=strings.ToLower("Go")
+//     str6:=strings.ToUpper("go")
+//     fmt.Println(str5,str6)//go GO
+//
+//
+// //     将字符串两边的空格去掉
+//     str7:=strings.TrimSpace("   go and java  ")
+//     fmt.Println(str7)//go and java
+//
+// //     将字符串两边指定的字符去掉
+//     str8:=strings.Trim("~~golang~~","~")
+//     fmt.Println(str8)//golang
+//
+// //     将字符串左边指定的字符去掉
+//     str9:=strings.TrimLeft("~golang~","~")
+// //     将字符串右边指定的字符去掉
+//     str10:=strings.TrimRight("~golang~","~")
+//     fmt.Println(str9,str10)//golang~ ~golang
+//
+// //     判断字符串是否以指定的字符串开头
+//     str11:=strings.HasPrefix("goandjava","go")
+//     fmt.Println(str11)//true
+//
+//
+// //     判断字符串是否以指定的字符串结尾
+//     str12:=strings.HasSuffix("goandjava","va")
+//     fmt.Println(str12)//true
+// }
+
+
 func main(){
-    // 字符串转整数：
-    num1,_:=strconv.Atoi("666")
-    fmt.Println(num1)//666
+    // 使用时间和日期函数,需要导入time包,获取当前时间,需要调用Now函数
+    now:=time.Now()//Now的返回值是一个结构体，类型是：time.Time
+    fmt.Printf("%v ~~~ 对应的类型为：%T\n",now,now)
+    // 2021-11-18 08:27:58.5279989 +0800 CST m=+0.004852001 ~~~ 对应的类型为：time.Time
 
-    //整数转字符串
-    str1:=strconv.Itoa(88)
-    fmt.Println(str1)//88
-
-    //统计一个字符串有几个指定的子符串
-    count:= strings.Count("golang","g")//在golang这个字符串中有几个g
-    fmt.Println(count)//2
-
-    //不区分大小写的字符串比较
-    flag:=strings.EqualFold("hello","HELLO")
-    fmt.Println(flag)//true
-
-    //区分大小写的字符串比较
-    fmt.Println("hello"=="HELLO")//false
-
-    //返回字符串在指定字符串中第一次出现的索引值，如果没有返回-1
-    fmt.Println(strings.Index("golang","n"))//4
-
-//     字符串的替换
-//把字符串“goandjavagogo”里面的go替换成golang,最后的参数表示替换的数量，-1表示替换全部
-    str2:=strings.Replace("goandjavagogo","go","golang",-1)
-    str3:=strings.Replace("goandjavagogo","go","golang",2)
-    fmt.Println(str2)//golangandjavagolanggolang
-    fmt.Println(str3)//golangandjavagolanggo
-
-
-//     按照某个指定的字符，为分割标识，将一个字符串拆分为字符串数组
-    str4:=strings.Split("go-python-java","-")
-    fmt.Println(str4)//[go python java]
-
-//     将字符串进行大小写的转换
-    str5:=strings.ToLower("Go")
-    str6:=strings.ToUpper("go")
-    fmt.Println(str5,str6)//go GO
-
-
-//     将字符串两边的空格去掉
-    str7:=strings.TrimSpace("   go and java  ")
-    fmt.Println(str7)//go and java
-
-//     将字符串两边指定的字符去掉
-    str8:=strings.Trim("~~golang~~","~")
-    fmt.Println(str8)//golang
-
-//     将字符串左边指定的字符去掉
-    str9:=strings.TrimLeft("~golang~","~")
-//     将字符串右边指定的字符去掉
-    str10:=strings.TrimRight("~golang~","~")
-    fmt.Println(str9,str10)//golang~ ~golang
-
-//     判断字符串是否以指定的字符串开头
-    str11:=strings.HasPrefix("goandjava","go")
-    fmt.Println(str11)//true
-
-
-//     判断字符串是否以指定的字符串结尾
-    str12:=strings.HasSuffix("goandjava","va")
-    fmt.Println(str12)//true
+    // 调用结构体中的方法：
+    fmt.Printf("年：%v \n",now.Year())
+    fmt.Printf("月：%v \n",now.Month())
+    fmt.Printf("日：%v \n",now.Day())
+    fmt.Printf("时：%v \n",now.Hour())
+    fmt.Printf("分：%v \n",now.Minute())
+    fmt.Printf("秒：%v \n",now.Second())
+    fmt.Println("--------------------------------")
+    // 运行结果:
+    // 年：2021
+    // 月：November
+    // 日：18
+    // 时：8
+    // 分：32
+    // 秒：30
 }
-
-
