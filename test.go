@@ -1114,4 +1114,11 @@ func main(){
     // Sprintf可以得到这个字符串,以便后续使用
     datastr:=fmt.Sprintf("当前年月日:%d-%d-%d 时分秒:%d-%d-%d \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
     fmt.Println(datastr)
+
+    // 这个参数字符串的各个数字必须是固定的,必须这样写
+    datastr2:=now.Format("2006/01/02 15/04/05")
+    fmt.Println(datastr2)
+    // 选择任意的组合都是可以的,根据需求选择
+    datastr3:=now.Format("2006 15:04")
+    fmt.Println(datastr3)
 }
