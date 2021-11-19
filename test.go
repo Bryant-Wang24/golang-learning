@@ -1121,7 +1121,18 @@ import "fmt"
 
 // golang内置函数
 // 1、len
+// func main(){
+//     str:="golang"
+//     fmt.Println(len(str))//6
+// }
+
+// 2、new
 func main(){
-    str:="golang"
-    fmt.Println(len(str))//6
+    // new分配内存，new函数的实参是一个类型而不是具体数值，new函数返回值对应类型的指针num:*int
+    num:=new(int)
+    fmt.Printf("num的类型：%T\nnum的值是：%v\nnum的地址：%v\nnum的指针指向的值：%v\n",num,num,&num,*num)
 }
+// num的类型：*int
+// num的值是：0xc000016088
+// num的地址：0xc000006028
+// num的指针指向的值：0
