@@ -1127,12 +1127,36 @@ import "fmt"
 // }
 
 // 2、new
-func main(){
-    // new分配内存，new函数的实参是一个类型而不是具体数值，new函数返回值对应类型的指针num:*int
-    num:=new(int)
-    fmt.Printf("num的类型：%T\nnum的值是：%v\nnum的地址：%v\nnum的指针指向的值：%v\n",num,num,&num,*num)
-}
+// func main(){
+//     // new分配内存，new函数的实参是一个类型而不是具体数值，new函数返回值对应类型的指针num:*int
+//     num:=new(int)
+//     fmt.Printf("num的类型：%T\nnum的值是：%v\nnum的地址：%v\nnum的指针指向的值：%v\n",num,num,&num,*num)
+// }
 // num的类型：*int
 // num的值是：0xc000016088
 // num的地址：0xc000006028
 // num的指针指向的值：0
+
+//golang中使用 defer + recover进行错误捕获
+func main(){
+    test()
+    fmt.Println("上面的除法操作执行成功")
+    fmt.Println("正常执行下面的逻辑")
+}
+
+func test(){
+    // 利用defer + recover 来捕获错误，defer后面加上匿名函数的调用
+    defer func(){
+        // 调用recover内置函数，可以捕获错误
+        err:=recover()
+        // 如果没有捕获错误，返回值为零值：nil
+        if err !=nil{
+            fmt.Println("错误已经捕获")
+            fmt.Println("err是：",err)
+        }
+    }()
+    num1:= 10
+    num2:= 0
+    result:=num1/num2
+    fmt.Println(result)
+}
