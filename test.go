@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
 // import "unsafe"
 // 可以一次声明多个变量：
@@ -1084,41 +1081,47 @@ import (
 //     fmt.Println(str12)//true
 // }
 
+// func main(){
+//     // 使用时间和日期函数,需要导入time包,获取当前时间,需要调用Now函数
+//     now:=time.Now()//Now的返回值是一个结构体，类型是：time.Time
+//     fmt.Printf("%v ~~~ 对应的类型为：%T\n",now,now)
+//     // 2021-11-18 08:27:58.5279989 +0800 CST m=+0.004852001 ~~~ 对应的类型为：time.Time
 
+//     // 调用结构体中的方法：
+//     fmt.Printf("年：%v \n",now.Year())
+//     fmt.Printf("月：%v \n",now.Month())
+//     fmt.Printf("日：%v \n",now.Day())
+//     fmt.Printf("时：%v \n",now.Hour())
+//     fmt.Printf("分：%v \n",now.Minute())
+//     fmt.Printf("秒：%v \n",now.Second())
+//     fmt.Println("--------------------------------")
+//     // 运行结果:
+//     // 年：2021
+//     // 月：November
+//     // 日：18
+//     // 时：8
+//     // 分：32
+//     // 秒：30
+
+//     // 日期的格式化:
+//     // 将日期以年月日分秒按照格式输出为字符串
+//     // Printf将字符串直接输出:
+//     fmt.Printf("当前年月日:%d-%d-%d 时分秒:%d:%d:%d  \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
+//     // Sprintf可以得到这个字符串,以便后续使用
+//     datastr:=fmt.Sprintf("当前年月日:%d-%d-%d 时分秒:%d-%d-%d \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
+//     fmt.Println(datastr)
+
+//     // 这个参数字符串的各个数字必须是固定的,必须这样写
+//     datastr2:=now.Format("2006/01/02 15/04/05")
+//     fmt.Println(datastr2)
+//     // 选择任意的组合都是可以的,根据需求选择
+//     datastr3:=now.Format("2006 15:04")
+//     fmt.Println(datastr3)
+// }
+
+// golang内置函数
+// 1、len
 func main(){
-    // 使用时间和日期函数,需要导入time包,获取当前时间,需要调用Now函数
-    now:=time.Now()//Now的返回值是一个结构体，类型是：time.Time
-    fmt.Printf("%v ~~~ 对应的类型为：%T\n",now,now)
-    // 2021-11-18 08:27:58.5279989 +0800 CST m=+0.004852001 ~~~ 对应的类型为：time.Time
-
-    // 调用结构体中的方法：
-    fmt.Printf("年：%v \n",now.Year())
-    fmt.Printf("月：%v \n",now.Month())
-    fmt.Printf("日：%v \n",now.Day())
-    fmt.Printf("时：%v \n",now.Hour())
-    fmt.Printf("分：%v \n",now.Minute())
-    fmt.Printf("秒：%v \n",now.Second())
-    fmt.Println("--------------------------------")
-    // 运行结果:
-    // 年：2021
-    // 月：November
-    // 日：18
-    // 时：8
-    // 分：32
-    // 秒：30
-    
-    // 日期的格式化:
-    // 将日期以年月日分秒按照格式输出为字符串
-    // Printf将字符串直接输出:
-    fmt.Printf("当前年月日:%d-%d-%d 时分秒:%d:%d:%d  \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
-    // Sprintf可以得到这个字符串,以便后续使用
-    datastr:=fmt.Sprintf("当前年月日:%d-%d-%d 时分秒:%d-%d-%d \n",now.Year(),now.Month(),now.Day(),now.Hour(),now.Minute(),now.Second())
-    fmt.Println(datastr)
-
-    // 这个参数字符串的各个数字必须是固定的,必须这样写
-    datastr2:=now.Format("2006/01/02 15/04/05")
-    fmt.Println(datastr2)
-    // 选择任意的组合都是可以的,根据需求选择
-    datastr3:=now.Format("2006 15:04")
-    fmt.Println(datastr3)
+    str:="golang"
+    fmt.Println(len(str))//6
 }
