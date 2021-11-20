@@ -1229,25 +1229,25 @@ import (
 // }
 
 // 遍历数组
-func main(){
-    var scores [5]int
-    for i := 0; i < len(scores); i++ {
-        fmt.Printf("请输入第%d个学生的成绩\n",i+1)
-        fmt.Scanln(&scores[i])//键盘逐个输入学生成绩
-    }
-    fmt.Println(scores)
+// func main(){
+//     var scores [5]int
+//     for i := 0; i < len(scores); i++ {
+//         fmt.Printf("请输入第%d个学生的成绩\n",i+1)
+//         fmt.Scanln(&scores[i])//键盘逐个输入学生成绩
+//     }
+//     fmt.Println(scores)
 
-    // 遍历数组
-    // 1、for循环
-    for i := 0; i < len(scores); i++ {
-        fmt.Printf("第%d个学生的成绩为：%d\n",i+1,scores[i])
-    }
-    fmt.Printf("-------------------------\n")
-    // 2、for range遍历数组键值
-    for key,value:=range scores{
-        fmt.Printf("第%d个学生的成绩为：%d\n",key+1,value)
-    }
-}
+//     // 遍历数组
+//     // 1、for循环
+//     for i := 0; i < len(scores); i++ {
+//         fmt.Printf("第%d个学生的成绩为：%d\n",i+1,scores[i])
+//     }
+//     fmt.Printf("-------------------------\n")
+//     // 2、for range遍历数组键值
+//     for key,value:=range scores{
+//         fmt.Printf("第%d个学生的成绩为：%d\n",key+1,value)
+//     }
+// }
 // 运行结果
 // 请输入第1个学生的成绩
 // 50
@@ -1271,3 +1271,23 @@ func main(){
 // 第3个学生的成绩为：70
 // 第4个学生的成绩为：80
 // 第5个学生的成绩为：90
+
+
+// 数组的4种初始化方式
+func main()  {
+    // 第一种
+    var arr1 [3]int = [3]int{3,6,9}
+    fmt.Println(arr1)//[3 6 9]
+
+    // 第二种
+    var arr2 = [3]int{1,4,7}
+    fmt.Println(arr2)//[1 4 7]
+
+    // 第三种
+    var arr3 = [...]int{4,5,6,7}
+    fmt.Println(arr3)//[4 5 6 7]
+
+    // 第四种
+    var arr4 = [...]int{2:66,0:33,1:99,3:99}
+    fmt.Println(arr4)//[33 99 66 99]
+}
