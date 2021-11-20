@@ -1295,10 +1295,21 @@ import (
 
 // 数组的注意事项
 // 1、数组的长度属于类型的一部分
-func main()  {
-    var arr1 =  [3]int{3,6,9}
-    fmt.Printf("数组的类型为：%T",arr1)//[3]int
+// func main()  {
+//     var arr1 =  [3]int{3,6,9}
+//     fmt.Printf("数组的类型为：%T",arr1)//[3]int
 
-    var arr2 =  [6]int{1,2,3,4,5,6}
-    fmt.Printf("数组的类型为：%T",arr2)//[6]int
+//     var arr2 =  [6]int{1,2,3,4,5,6}
+//     fmt.Printf("数组的类型为：%T",arr2)//[6]int
+// }
+
+// 2、go中数组属于值类型，在默认情况下是值传递，因此会进行值拷贝
+func main()  {
+    var arr3 = [3]int{3,6,9}
+    test(arr3)
+    fmt.Println(arr3)//[3 6 9]
+}
+
+func test(arr[3]int)  {
+    arr[0] = 7
 }
