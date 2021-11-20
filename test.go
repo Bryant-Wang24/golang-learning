@@ -1192,20 +1192,38 @@ import (
 
 
 // 数组
+// func main(){
+//     var scores [5]int//定义一个数组
+//     // 将成绩存入数组
+//     scores[0] = 95
+//     scores[1] = 91
+//     scores[2] = 39
+//     scores[3] = 60
+//     scores[4] = 21
+//     // 求和
+//      sum := 0
+//     for i := 0; i < len(scores); i++ {
+//         sum+=scores[i]
+//     }
+//     // 平均数
+//     average:=sum/len(scores)
+//     fmt.Println(sum,average)//306 61
+// }
+
 func main(){
-    var scores [5]int//定义一个数组
-    // 将成绩存入数组
-    scores[0] = 95
-    scores[1] = 91
-    scores[2] = 39
-    scores[3] = 60
-    scores[4] = 21
-    // 求和
-     sum := 0
-    for i := 0; i < len(scores); i++ {
-        sum+=scores[i]
-    }
-    // 平均数
-    average:=sum/len(scores)
-    fmt.Println(sum,average)//306 61
+    // 声明数组
+    //数组每个空间占用的字节数取决于数组类型
+    var arr [3]int16//16进制整型占2个字节
+    // 获取数组的长度
+    fmt.Println(len(arr))//3
+    // 打印数组
+    fmt.Println(arr)//[0 0 0]
+    // 证明arr中存储的是地址值
+    fmt.Printf("arr的地址为：%p",&arr)//arr的地址为：0xc000016098
+    // 第一个空间的地址：
+    fmt.Printf("arr的地址为：%p",&arr[0])//arr的地址为：0xc000016098
+    // 第二个空间的地址：
+    fmt.Printf("arr的地址为：%p",&arr[1])//arr的地址为：0xc00001609a
+    // 第三个空间的地址：
+    fmt.Printf("arr的地址为：%p",&arr[2])//arr的地址为：0xc00001609c
 }
