@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -1165,28 +1164,48 @@ import (
 // }
 
 // 自定义错误：需要调用errors包下的New函数：函数返回error类型
-func main(){
-    err:= test()
-    if err!=nil{
-        fmt.Println("自定义错误：",err)
-    }
-    fmt.Println("上面的除法操作执行成功")
-    fmt.Println("正常执行下面的逻辑")
-}
+// func main(){
+//     err:= test()
+//     if err!=nil{
+//         fmt.Println("自定义错误：",err)
+//     }
+//     fmt.Println("上面的除法操作执行成功")
+//     fmt.Println("正常执行下面的逻辑")
+// }
 
-func test()(err error){
-    num1:= 10
-    num2:= 0
-    if num2==0{
-        // 抛出自定义错误
-        return errors.New("除数不能为0哦~~")
-    }else{//如果除数不为0，那么正常执行
-        result:=num1/num2
-        fmt.Println(result)
-        // 如果没有错误，返回零值
-        return nil
-    }
-}
+// func test()(err error){
+//     num1:= 10
+//     num2:= 0
+//     if num2==0{
+//         // 抛出自定义错误
+//         return errors.New("除数不能为0哦~~")
+//     }else{//如果除数不为0，那么正常执行
+//         result:=num1/num2
+//         fmt.Println(result)
+//         // 如果没有错误，返回零值
+//         return nil
+//     }
+// }
 // 自定义错误： 除数不能为0哦~~
 // 上面的除法操作执行成功
 // 正常执行下面的逻辑 
+
+
+// 数组
+func main(){
+    var scores [5]int//定义一个数组
+    // 将成绩存入数组
+    scores[0] = 95
+    scores[1] = 91
+    scores[2] = 39
+    scores[3] = 60
+    scores[4] = 21
+    // 求和
+     sum := 0
+    for i := 0; i < len(scores); i++ {
+        sum+=scores[i]
+    }
+    // 平均数
+    average:=sum/len(scores)
+    fmt.Println(sum,average)//306 61
+}
