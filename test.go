@@ -1274,20 +1274,31 @@ import (
 
 
 // 数组的4种初始化方式
+// func main()  {
+//     // 第一种
+//     var arr1 [3]int = [3]int{3,6,9}
+//     fmt.Println(arr1)//[3 6 9]
+
+//     // 第二种
+//     var arr2 = [3]int{1,4,7}
+//     fmt.Println(arr2)//[1 4 7]
+
+//     // 第三种
+//     var arr3 = [...]int{4,5,6,7}
+//     fmt.Println(arr3)//[4 5 6 7]
+
+//     // 第四种
+//     var arr4 = [...]int{2:66,0:33,1:99,3:99}
+//     fmt.Println(arr4)//[33 99 66 99]
+// }
+
+
+// 数组的注意事项
+// 1、数组的长度属于类型的一部分
 func main()  {
-    // 第一种
-    var arr1 [3]int = [3]int{3,6,9}
-    fmt.Println(arr1)//[3 6 9]
+    var arr1 =  [3]int{3,6,9}
+    fmt.Printf("数组的类型为：%T",arr1)//[3]int
 
-    // 第二种
-    var arr2 = [3]int{1,4,7}
-    fmt.Println(arr2)//[1 4 7]
-
-    // 第三种
-    var arr3 = [...]int{4,5,6,7}
-    fmt.Println(arr3)//[4 5 6 7]
-
-    // 第四种
-    var arr4 = [...]int{2:66,0:33,1:99,3:99}
-    fmt.Println(arr4)//[33 99 66 99]
+    var arr2 =  [6]int{1,2,3,4,5,6}
+    fmt.Printf("数组的类型为：%T",arr2)//[6]int
 }
