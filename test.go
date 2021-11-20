@@ -1304,12 +1304,23 @@ import (
 // }
 
 // 2、go中数组属于值类型，在默认情况下是值传递，因此会进行值拷贝
+// func main()  {
+//     var arr3 = [3]int{3,6,9}
+//     test(arr3)
+//     fmt.Println(arr3)//[3 6 9]
+// }
+
+// func test(arr[3]int)  {
+//     arr[0] = 7
+// }
+
+// 3、数组的引用传递，传递的是地址值
 func main()  {
     var arr3 = [3]int{3,6,9}
-    test(arr3)
-    fmt.Println(arr3)//[3 6 9]
+    test(&arr3)
+    fmt.Println(arr3)//[7 6 9]
 }
 
-func test(arr[3]int)  {
-    arr[0] = 7
+func test(arr *[3]int)  {
+    (*arr)[0] = 7
 }
