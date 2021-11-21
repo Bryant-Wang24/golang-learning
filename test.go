@@ -1327,23 +1327,57 @@ import (
 
 
 // 二维数组
+// func main()  {
+//     // 定义二维数组
+//     var arr [2][3]int16
+//     fmt.Println(arr)//[[0 0 0] [0 0 0]]
+//     fmt.Printf("arr的地址是：%p\n",&arr)            //0xc000128070
+//     fmt.Printf("arr[0]的地址是：%p\n",&arr[0])      //0xc000128070
+//     fmt.Printf("arr[0][0]的地址是：%p\n",&arr[0][0])//0xc000128070
+//     fmt.Printf("arr[1]的地址是：%p\n",&arr[1])      //0xc000128076
+//     fmt.Printf("arr[1][0]的地址是：%p\n",&arr[1][0])//0xc000128076
+
+//     // 赋值
+//     arr[0][0] = 82
+//     arr[0][1] = 72
+//     arr[1][1] = 62
+//     fmt.Println(arr)//[[82 72 0] [0 62 0]]
+
+//     // 二维数组初始化操作
+//     var arr1 [2][3]int = [2][3]int{{1,4,7},{2,5,8}}
+//     fmt.Println(arr1)//[[1 4 7] [2 5 8]]
+// }
+
+
+// 二位数组的遍历
 func main()  {
     // 定义二维数组
-    var arr [2][3]int16
-    fmt.Println(arr)//[[0 0 0] [0 0 0]]
-    fmt.Printf("arr的地址是：%p\n",&arr)            //0xc000128070
-    fmt.Printf("arr[0]的地址是：%p\n",&arr[0])      //0xc000128070
-    fmt.Printf("arr[0][0]的地址是：%p\n",&arr[0][0])//0xc000128070
-    fmt.Printf("arr[1]的地址是：%p\n",&arr[1])      //0xc000128076
-    fmt.Printf("arr[1][0]的地址是：%p\n",&arr[1][0])//0xc000128076
+    var arr [3][3]int = [3][3]int{{1,4,7},{2,5,8},{3,6,9}}
+    fmt.Println(arr)//[[1 4 7] [2 5 8] [3 6 9]]
+    fmt.Println("----------------")
 
-    // 赋值
-    arr[0][0] = 82
-    arr[0][1] = 72
-    arr[1][1] = 62
-    fmt.Println(arr)//[[82 72 0] [0 62 0]]
+    // 方式一：for循环
+    for i := 0; i < len(arr); i++ {
+        for j := 0; j < len(arr[i]); j++ {
+            fmt.Print(arr[i][j],"\t")
+        }
+        fmt.Println()//fmt.Println()可以打印一个换行符
+    }
+    // 运行结果：
+    // 1       4       7
+    // 2       5       8
+    // 3       6       9
 
-    // 二维数组初始化操作
-    var arr1 [2][3]int = [2][3]int{{1,4,7},{2,5,8}}
-    fmt.Println(arr1)//[[1 4 7] [2 5 8]]
+
+    // 方式二：for range循环
+    for key1, value1 := range arr {
+        for key2, value2 := range value1 {
+            fmt.Printf("arr[%v][%v]=%v ",key1,key2,value2)
+        }
+        fmt.Println()//fmt.Println()可以打印一个换行符
+    }
+    // 运行结果
+    // arr[0][0]=1 arr[0][1]=4 arr[0][2]=7
+    // arr[1][0]=2 arr[1][1]=5 arr[1][2]=8
+    // arr[2][0]=3 arr[2][1]=6 arr[2][2]=9
 }
