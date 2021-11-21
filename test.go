@@ -1315,12 +1315,35 @@ import (
 // }
 
 // 3、数组的引用传递，传递的是地址值
-func main()  {
-    var arr3 = [3]int{3,6,9}
-    test(&arr3)
-    fmt.Println(arr3)//[7 6 9]
-}
+// func main()  {
+//     var arr3 = [3]int{3,6,9}
+//     test(&arr3)
+//     fmt.Println(arr3)//[7 6 9]
+// }
 
-func test(arr *[3]int)  {
-    (*arr)[0] = 7
+// func test(arr *[3]int)  {
+//     (*arr)[0] = 7
+// }
+
+
+// 二维数组
+func main()  {
+    // 定义二维数组
+    var arr [2][3]int16
+    fmt.Println(arr)//[[0 0 0] [0 0 0]]
+    fmt.Printf("arr的地址是：%p\n",&arr)            //0xc000128070
+    fmt.Printf("arr[0]的地址是：%p\n",&arr[0])      //0xc000128070
+    fmt.Printf("arr[0][0]的地址是：%p\n",&arr[0][0])//0xc000128070
+    fmt.Printf("arr[1]的地址是：%p\n",&arr[1])      //0xc000128076
+    fmt.Printf("arr[1][0]的地址是：%p\n",&arr[1][0])//0xc000128076
+
+    // 赋值
+    arr[0][0] = 82
+    arr[0][1] = 72
+    arr[1][1] = 62
+    fmt.Println(arr)//[[82 72 0] [0 62 0]]
+
+    // 二维数组初始化操作
+    var arr1 [2][3]int = [2][3]int{{1,4,7},{2,5,8}}
+    fmt.Println(arr1)//[[1 4 7] [2 5 8]]
 }
