@@ -1350,34 +1350,55 @@ import (
 
 
 // 二位数组的遍历
+// func main()  {
+//     // 定义二维数组
+//     var arr [3][3]int = [3][3]int{{1,4,7},{2,5,8},{3,6,9}}
+//     fmt.Println(arr)//[[1 4 7] [2 5 8] [3 6 9]]
+//     fmt.Println("----------------")
+
+//     // 方式一：for循环
+//     for i := 0; i < len(arr); i++ {
+//         for j := 0; j < len(arr[i]); j++ {
+//             fmt.Print(arr[i][j],"\t")
+//         }
+//         fmt.Println()//fmt.Println()可以打印一个换行符
+//     }
+//     // 运行结果：
+//     // 1       4       7
+//     // 2       5       8
+//     // 3       6       9
+
+
+//     // 方式二：for range循环
+//     for key1, value1 := range arr {
+//         for key2, value2 := range value1 {
+//             fmt.Printf("arr[%v][%v]=%v ",key1,key2,value2)
+//         }
+//         fmt.Println()//fmt.Println()可以打印一个换行符
+//     }
+//     // 运行结果
+//     // arr[0][0]=1 arr[0][1]=4 arr[0][2]=7
+//     // arr[1][0]=2 arr[1][1]=5 arr[1][2]=8
+//     // arr[2][0]=3 arr[2][1]=6 arr[2][2]=9
+// }
+
+
+// 切片:切片就是对数组一个连续片段的引用
 func main()  {
-    // 定义二维数组
-    var arr [3][3]int = [3][3]int{{1,4,7},{2,5,8},{3,6,9}}
-    fmt.Println(arr)//[[1 4 7] [2 5 8] [3 6 9]]
-    fmt.Println("----------------")
+    var intarr [6]int = [6]int{1,4,7,3,6,9}
+    // 切片构建在数组之上
+    // 定义一个切片，名字为slice
+    slice:= intarr[1:4]//[1,3]表示切出的片段索引从1开始，到3结束（不包含3）
 
-    // 方式一：for循环
-    for i := 0; i < len(arr); i++ {
-        for j := 0; j < len(arr[i]); j++ {
-            fmt.Print(arr[i][j],"\t")
-        }
-        fmt.Println()//fmt.Println()可以打印一个换行符
-    }
-    // 运行结果：
-    // 1       4       7
-    // 2       5       8
-    // 3       6       9
+    // 输出数组
+    fmt.Println("intarr：",intarr)// intarr： [1 4 7 3 6 9]
 
+    // 输出切片
+    fmt.Println("slice：",slice)// slice： [4 7]
 
-    // 方式二：for range循环
-    for key1, value1 := range arr {
-        for key2, value2 := range value1 {
-            fmt.Printf("arr[%v][%v]=%v ",key1,key2,value2)
-        }
-        fmt.Println()//fmt.Println()可以打印一个换行符
-    }
-    // 运行结果
-    // arr[0][0]=1 arr[0][1]=4 arr[0][2]=7
-    // arr[1][0]=2 arr[1][1]=5 arr[1][2]=8
-    // arr[2][0]=3 arr[2][1]=6 arr[2][2]=9
+    // 输出切片元素个数
+    fmt.Println(len(slice))// 2
+
+    // 获取切片的容量，容量可以动态变化
+    fmt.Println("slice的容量：",cap(slice))// slice的容量： 5
 }
