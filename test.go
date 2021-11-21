@@ -1388,7 +1388,7 @@ func main()  {
     var intarr [6]int = [6]int{1,4,7,3,6,9}
     // 切片构建在数组之上
     // 定义一个切片，名字为slice
-    slice:= intarr[1:4]//[1,3]表示切出的片段索引从1开始，到3结束（不包含3）
+    slice:= intarr[1:3]//[1,3]表示切出的片段索引从1开始，到3结束（不包含3）
 
     // 输出数组
     fmt.Println("intarr：",intarr)// intarr： [1 4 7 3 6 9]
@@ -1401,4 +1401,15 @@ func main()  {
 
     // 获取切片的容量，容量可以动态变化
     fmt.Println("slice的容量：",cap(slice))// slice的容量： 5
+
+
+    // 切片有3个字段的数据结构：一个是指向底层数组的指针
+    // 一个是切片的长度，一个是切片的容量
+    fmt.Printf("数组中下标为1位置的地址：%p\n",&intarr[1])//  0xc00000a3c8
+    fmt.Printf("切片中下标为0位置的地址：%p\n",&slice[0])// 0xc00000a3c8
+
+    // 因为切片指向原数组的地址，所以改变了重新赋值后原数组的值而也会改变
+    slice[0] = 16
+    fmt.Println(intarr)// [1 16 7 3 6 9]
+    fmt.Println(slice)//[16 7]
 }
