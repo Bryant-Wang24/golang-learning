@@ -1416,20 +1416,50 @@ import (
 
 
 // 切片的定义第二种方法：通过make函数创建切片
-func main()  {
-    // 定义切片：make函数的三个参数：1、切片类型 2、切片长度 3、切片容量
-    // make函数底层创建一个数组，对外不可见，所以不可以直接操作这个数组，要通过slice间接的访问各个元素
-    slice:= make([]int, 4,20)
-    fmt.Println(slice) // [0 0 0 0]
-    fmt.Println("切片的长度",len(slice))// 切片的长度 4
-    fmt.Println("切片的容量",cap(slice))// 片的容量 20
-    slice[0] = 66
-    slice[1] = 88
-    fmt.Println(slice)// [66 88 0 0]
+// func main()  {
+//     // 定义切片：make函数的三个参数：1、切片类型 2、切片长度 3、切片容量
+//     // make函数底层创建一个数组，对外不可见，所以不可以直接操作这个数组，要通过slice间接的访问各个元素
+//     slice:= make([]int, 4,20)
+//     fmt.Println(slice) // [0 0 0 0]
+//     fmt.Println("切片的长度",len(slice))// 切片的长度 4
+//     fmt.Println("切片的容量",cap(slice))// 片的容量 20
+//     slice[0] = 66
+//     slice[1] = 88
+//     fmt.Println(slice)// [66 88 0 0]
 
-    // 切片的定义第三种方法：定一个切片，直接指定具体数组，使用原理类似make的方式
-    slice2:= []int{1,4,7}
-    fmt.Println(slice2) // [1 4 7]
-    fmt.Println("切片的长度",len(slice2))// 切片的长度 3
-    fmt.Println("切片的容量",cap(slice2))// 片的容量 3
+//     // 切片的定义第三种方法：定一个切片，直接指定具体数组，使用原理类似make的方式
+//     slice2:= []int{1,4,7}
+//     fmt.Println(slice2) // [1 4 7]
+//     fmt.Println("切片的长度",len(slice2))// 切片的长度 3
+//     fmt.Println("切片的容量",cap(slice2))// 片的容量 3
+// }
+
+
+// 遍历切片
+func main()  {
+    slice:=make([]int, 4,20)
+    slice[0] = 11
+    slice[1] = 22
+    slice[2] = 33
+    slice[3] = 44
+    // 1、for循环
+    for i := 0; i < len(slice); i++ {
+        fmt.Printf("slice[%v]=%v\n",i,slice[i])
+    }
+    // 运行结果
+    // slice[0]=11
+    // slice[1]=22
+    // slice[2]=33
+    // slice[3]=44
+    fmt.Println("----------")
+
+    // 2、for range
+    for key, value := range slice {
+        fmt.Printf("下标：%v，值：%v\n",key,value)
+    }
+    // 运行结果
+    // 下标：0，值：11
+    // 下标：1，值：22
+    // 下标：2，值：33
+    // 下标：3，值：44
 }
