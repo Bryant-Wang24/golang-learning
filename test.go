@@ -1384,32 +1384,52 @@ import (
 
 
 // 切片:切片就是对数组一个连续片段的引用
+// func main()  {
+//     var intarr [6]int = [6]int{1,4,7,3,6,9}
+//     // 切片构建在数组之上
+//     // 定义一个切片的第一种方式，直接引用数组的某一部分
+//     slice:= intarr[1:3]//[1,3]表示切出的片段索引从1开始，到3结束（不包含3）
+
+//     // 输出数组
+//     fmt.Println("intarr：",intarr)// intarr： [1 4 7 3 6 9]
+
+//     // 输出切片
+//     fmt.Println("slice：",slice)// slice： [4 7]
+
+//     // 输出切片元素个数
+//     fmt.Println(len(slice))// 2
+
+//     // 获取切片的容量，容量可以动态变化
+//     fmt.Println("slice的容量：",cap(slice))// slice的容量： 5
+
+
+//     // 切片有3个字段的数据结构：一个是指向底层数组的指针
+//     // 一个是切片的长度，一个是切片的容量
+//     fmt.Printf("数组中下标为1位置的地址：%p\n",&intarr[1])//  0xc00000a3c8
+//     fmt.Printf("切片中下标为0位置的地址：%p\n",&slice[0])// 0xc00000a3c8
+
+//     // 因为切片指向原数组的地址，所以改变了重新赋值后原数组的值而也会改变
+//     slice[0] = 16
+//     fmt.Println(intarr)// [1 16 7 3 6 9]
+//     fmt.Println(slice)//[16 7]
+// }
+
+
+// 切片的定义第二种方法：通过make函数创建切片
 func main()  {
-    var intarr [6]int = [6]int{1,4,7,3,6,9}
-    // 切片构建在数组之上
-    // 定义一个切片，名字为slice
-    slice:= intarr[1:3]//[1,3]表示切出的片段索引从1开始，到3结束（不包含3）
+    // 定义切片：make函数的三个参数：1、切片类型 2、切片长度 3、切片容量
+    // make函数底层创建一个数组，对外不可见，所以不可以直接操作这个数组，要通过slice间接的访问各个元素
+    slice:= make([]int, 4,20)
+    fmt.Println(slice) // [0 0 0 0]
+    fmt.Println("切片的长度",len(slice))// 切片的长度 4
+    fmt.Println("切片的容量",cap(slice))// 片的容量 20
+    slice[0] = 66
+    slice[1] = 88
+    fmt.Println(slice)// [66 88 0 0]
 
-    // 输出数组
-    fmt.Println("intarr：",intarr)// intarr： [1 4 7 3 6 9]
-
-    // 输出切片
-    fmt.Println("slice：",slice)// slice： [4 7]
-
-    // 输出切片元素个数
-    fmt.Println(len(slice))// 2
-
-    // 获取切片的容量，容量可以动态变化
-    fmt.Println("slice的容量：",cap(slice))// slice的容量： 5
-
-
-    // 切片有3个字段的数据结构：一个是指向底层数组的指针
-    // 一个是切片的长度，一个是切片的容量
-    fmt.Printf("数组中下标为1位置的地址：%p\n",&intarr[1])//  0xc00000a3c8
-    fmt.Printf("切片中下标为0位置的地址：%p\n",&slice[0])// 0xc00000a3c8
-
-    // 因为切片指向原数组的地址，所以改变了重新赋值后原数组的值而也会改变
-    slice[0] = 16
-    fmt.Println(intarr)// [1 16 7 3 6 9]
-    fmt.Println(slice)//[16 7]
+    // 切片的定义第三种方法：定一个切片，直接指定具体数组，使用原理类似make的方式
+    slice2:= []int{1,4,7}
+    fmt.Println(slice2) // [1 4 7]
+    fmt.Println("切片的长度",len(slice2))// 切片的长度 3
+    fmt.Println("切片的容量",cap(slice2))// 片的容量 3
 }
