@@ -1436,30 +1436,43 @@ import (
 
 
 // 遍历切片
-func main()  {
-    slice:=make([]int, 4,20)
-    slice[0] = 11
-    slice[1] = 22
-    slice[2] = 33
-    slice[3] = 44
-    // 1、for循环
-    for i := 0; i < len(slice); i++ {
-        fmt.Printf("slice[%v]=%v\n",i,slice[i])
-    }
-    // 运行结果
-    // slice[0]=11
-    // slice[1]=22
-    // slice[2]=33
-    // slice[3]=44
-    fmt.Println("----------")
+// func main()  {
+//     slice:=make([]int, 4,20)
+//     slice[0] = 11
+//     slice[1] = 22
+//     slice[2] = 33
+//     slice[3] = 44
+//     // 1、for循环
+//     for i := 0; i < len(slice); i++ {
+//         fmt.Printf("slice[%v]=%v\n",i,slice[i])
+//     }
+//     // 运行结果
+//     // slice[0]=11
+//     // slice[1]=22
+//     // slice[2]=33
+//     // slice[3]=44
+//     fmt.Println("----------")
 
-    // 2、for range
-    for key, value := range slice {
-        fmt.Printf("下标：%v，值：%v\n",key,value)
-    }
-    // 运行结果
-    // 下标：0，值：11
-    // 下标：1，值：22
-    // 下标：2，值：33
-    // 下标：3，值：44
+//     // 2、for range
+//     for key, value := range slice {
+//         fmt.Printf("下标：%v，值：%v\n",key,value)
+//     }
+//     // 运行结果
+//     // 下标：0，值：11
+//     // 下标：1，值：22
+//     // 下标：2，值：33
+//     // 下标：3，值：44
+// }
+
+
+func main()  {
+    intarr:=[6]int{1,4,7,2,5,8}
+    slice:=intarr[1:4]
+    // 切片可以再次切片
+    slice2:=slice[1:2]
+    fmt.Println(slice2)// [7]
+    //改变了其中一个切片里面的值，原本数组和切片的值也会改变 
+    slice2[0] = 66
+    fmt.Println(intarr)// [1 4 66 2 5 8]
+    fmt.Println(slice)// [4 66 2]
 }
