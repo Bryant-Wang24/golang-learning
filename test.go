@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // import "unsafe"
 // 可以一次声明多个变量：
@@ -1466,23 +1464,31 @@ import (
 //     fmt.Println(slice)// [4 66 2]
 // }
 
+// func main()  {
+//     // 定义数组
+//     var intarr [6]int = [6]int{1,4,7,2,5,8}
+//     // 定义切片
+//     var slice []int = intarr[1:4]
+//     fmt.Println(len(slice))// 3
 
+//     slice2:=append(slice,88,50)
+//     fmt.Println(slice2)// [4 7 2 88 50]
+//     fmt.Println(slice)// [4 7 2]
+//     // 底层原理：
+//     // 1、底层追加元素的时候对数组进行扩容，老数组扩容为新数组
+//     // 2、创建一个数组，将老数组中的4，7，3复制到新数组中，在新数组中追加88，50
+//     // 3、slice2底层数组的指向，指向的是新数组
+//     // 4、往往我们在使用追加的时候其实想要做的效果是给slice追加
+//     slice=append(slice, 88,50)
+//     fmt.Println((slice))// [4 7 2 88 50]
+//     // 底层的新数组不能直接维护，需要通过切片简介维护
+// }
+
+// 拷贝
 func main()  {
-    // 定义数组
-    var intarr [6]int = [6]int{1,4,7,2,5,8}
-    // 定义切片
-    var slice []int = intarr[1:4]
-    fmt.Println(len(slice))// 3
-
-    slice2:=append(slice,88,50)
-    fmt.Println(slice2)// [4 7 2 88 50]
-    fmt.Println(slice)// [4 7 2]
-    // 底层原理：
-    // 1、底层追加元素的时候对数组进行扩容，老数组扩容为新数组
-    // 2、创建一个数组，将老数组中的4，7，3复制到新数组中，在新数组中追加88，50
-    // 3、slice2底层数组的指向，指向的是新数组
-    // 4、往往我们在使用追加的时候其实想要做的效果是给slice追加
-    slice=append(slice, 88,50)
-    fmt.Println((slice))// [4 7 2 88 50]
-    // 底层的新数组不能直接维护，需要通过切片简介维护
+    var a []int = []int{1,4,7,2,5,8}
+    var b []int = make([]int, 10)
+    // 拷贝,将a中对应数组中元素内容复制到b中对应的数组中
+    copy(b,a)
+    fmt.Println(b)//  [1 4 7 2 5 8 0 0 0 0]
 }
