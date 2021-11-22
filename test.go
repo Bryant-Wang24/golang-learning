@@ -1188,8 +1188,7 @@ import (
 // }
 // 自定义错误： 除数不能为0哦~~
 // 上面的除法操作执行成功
-// 正常执行下面的逻辑 
-
+// 正常执行下面的逻辑
 
 // 数组
 // func main(){
@@ -1272,7 +1271,6 @@ import (
 // 第4个学生的成绩为：80
 // 第5个学生的成绩为：90
 
-
 // 数组的4种初始化方式
 // func main()  {
 //     // 第一种
@@ -1291,7 +1289,6 @@ import (
 //     var arr4 = [...]int{2:66,0:33,1:99,3:99}
 //     fmt.Println(arr4)//[33 99 66 99]
 // }
-
 
 // 数组的注意事项
 // 1、数组的长度属于类型的一部分
@@ -1325,7 +1322,6 @@ import (
 //     (*arr)[0] = 7
 // }
 
-
 // 二维数组
 // func main()  {
 //     // 定义二维数组
@@ -1348,7 +1344,6 @@ import (
 //     fmt.Println(arr1)//[[1 4 7] [2 5 8]]
 // }
 
-
 // 二位数组的遍历
 // func main()  {
 //     // 定义二维数组
@@ -1368,7 +1363,6 @@ import (
 //     // 2       5       8
 //     // 3       6       9
 
-
 //     // 方式二：for range循环
 //     for key1, value1 := range arr {
 //         for key2, value2 := range value1 {
@@ -1381,7 +1375,6 @@ import (
 //     // arr[1][0]=2 arr[1][1]=5 arr[1][2]=8
 //     // arr[2][0]=3 arr[2][1]=6 arr[2][2]=9
 // }
-
 
 // 切片:切片就是对数组一个连续片段的引用
 // func main()  {
@@ -1402,7 +1395,6 @@ import (
 //     // 获取切片的容量，容量可以动态变化
 //     fmt.Println("slice的容量：",cap(slice))// slice的容量： 5
 
-
 //     // 切片有3个字段的数据结构：一个是指向底层数组的指针
 //     // 一个是切片的长度，一个是切片的容量
 //     fmt.Printf("数组中下标为1位置的地址：%p\n",&intarr[1])//  0xc00000a3c8
@@ -1413,7 +1405,6 @@ import (
 //     fmt.Println(intarr)// [1 16 7 3 6 9]
 //     fmt.Println(slice)//[16 7]
 // }
-
 
 // 切片的定义第二种方法：通过make函数创建切片
 // func main()  {
@@ -1433,7 +1424,6 @@ import (
 //     fmt.Println("切片的长度",len(slice2))// 切片的长度 3
 //     fmt.Println("切片的容量",cap(slice2))// 片的容量 3
 // }
-
 
 // 遍历切片
 // func main()  {
@@ -1464,15 +1454,35 @@ import (
 //     // 下标：3，值：44
 // }
 
+// func main()  {
+//     intarr:=[6]int{1,4,7,2,5,8}
+//     slice:=intarr[1:4]
+//     // 切片可以再次切片
+//     slice2:=slice[1:2]
+//     fmt.Println(slice2)// [7]
+//     //改变了其中一个切片里面的值，原本数组和切片的值也会改变
+//     slice2[0] = 66
+//     fmt.Println(intarr)// [1 4 66 2 5 8]
+//     fmt.Println(slice)// [4 66 2]
+// }
+
 
 func main()  {
-    intarr:=[6]int{1,4,7,2,5,8}
-    slice:=intarr[1:4]
-    // 切片可以再次切片
-    slice2:=slice[1:2]
-    fmt.Println(slice2)// [7]
-    //改变了其中一个切片里面的值，原本数组和切片的值也会改变 
-    slice2[0] = 66
-    fmt.Println(intarr)// [1 4 66 2 5 8]
-    fmt.Println(slice)// [4 66 2]
+    // 定义数组
+    var intarr [6]int = [6]int{1,4,7,2,5,8}
+    // 定义切片
+    var slice []int = intarr[1:4]
+    fmt.Println(len(slice))// 3
+
+    slice2:=append(slice,88,50)
+    fmt.Println(slice2)// [4 7 2 88 50]
+    fmt.Println(slice)// [4 7 2]
+    // 底层原理：
+    // 1、底层追加元素的时候对数组进行扩容，老数组扩容为新数组
+    // 2、创建一个数组，将老数组中的4，7，3复制到新数组中，在新数组中追加88，50
+    // 3、slice2底层数组的指向，指向的是新数组
+    // 4、往往我们在使用追加的时候其实想要做的效果是给slice追加
+    slice=append(slice, 88,50)
+    fmt.Println((slice))// [4 7 2 88 50]
+    // 底层的新数组不能直接维护，需要通过切片简介维护
 }
