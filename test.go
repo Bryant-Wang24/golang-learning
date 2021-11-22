@@ -1485,10 +1485,31 @@ import "fmt"
 // }
 
 // 拷贝
+// func main()  {
+//     var a []int = []int{1,4,7,2,5,8}
+//     var b []int = make([]int, 10)
+//     // 拷贝,将a中对应数组中元素内容复制到b中对应的数组中
+//     copy(b,a)
+//     fmt.Println(b)//  [1 4 7 2 5 8 0 0 0 0]
+// }
+
+// map(集合)
 func main()  {
-    var a []int = []int{1,4,7,2,5,8}
-    var b []int = make([]int, 10)
-    // 拷贝,将a中对应数组中元素内容复制到b中对应的数组中
-    copy(b,a)
-    fmt.Println(b)//  [1 4 7 2 5 8 0 0 0 0]
+    // 定义map变量
+    var a map[int]string
+    // 只声明map 内存是没有分配空间的
+    // 必须通过make函数进行初始化，才会分配空间
+    a = make(map[int]string,10)// 这里map可以存放10个键值对
+    // 将键值对存入map中
+    a[200901] = "张三"
+    a[200902] = "李四"
+    a[200903] = "王五"
+    a[200902] = "马六"
+    a[200904] = "张三"
+    fmt.Println(a)// map[200901:张三 200902:马六 200903:王五 200904:张三]
 }
+// 总结map的特点：
+// 1、map集合在使用前一定要使用make
+// 2、map的key-value是无序的
+// 3、key是不可以重复的，如果遇到重复，后一个value会覆盖前一个value
+// 4、value是可以重复的
