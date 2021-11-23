@@ -1529,23 +1529,70 @@ import "fmt"
 // 4、value是可以重复的
 
 // map(集合)的增删改查
+// func main()  {
+//     // 定义map
+//     b:=make(map[int]string)
+//     // 增加
+//     b[202101] = "张三"
+//     b[202102] = "李四"
+//     // 修改
+//     b[202101] = "王五"
+//     // 删除,,使用delete函数
+//     delete(b,202101)
+//     fmt.Println(b)// map[202102:李四]
+//     // 如果我们要删除map所有的key,没有一个专门的方法一次删除,
+//     // 可以遍历一下key,逐个删除
+//     // 或者make一个新的集合,让原来的成为垃圾,被gc回收
+
+//     // 查找
+//     value,flag:=b[202102]
+//     fmt.Println(value) // 李四
+//     fmt.Println(flag)  // true
+// }
+
+
 func main()  {
     // 定义map
     b:=make(map[int]string)
-    // 增加
     b[202101] = "张三"
     b[202102] = "李四"
-    // 修改
-    b[202101] = "王五"
-    // 删除,,使用delete函数
-    delete(b,202101)
-    fmt.Println(b)// map[202102:李四]
-    // 如果我们要删除map所有的key,没有一个专门的方法一次删除,
-    // 可以遍历一下key,逐个删除
-    // 或者make一个新的集合,让原来的成为垃圾,被gc回收
+    b[202103] = "王五"
 
-    // 查找
-    value,flag:=b[202102]
-    fmt.Println(value) // 李四
-    fmt.Println(flag)  // true
+    // 获取长度
+    fmt.Println(len(b))// 3
+
+    // 遍历
+    for key,value := range b {
+        fmt.Printf("key为%v,value为%v\n",key,value)
+        // key为202101,value为张三
+        // key为202102,value为李四
+        // key为202103,value为王五
+    }
+
+    // map里面嵌套一个map
+    a:=make(map[string]map[int]string)
+    // 赋值
+    a["班级1"] = make(map[int]string,3)
+    a["班级1"][202101] = "Jordan"
+    a["班级1"][202102] = "Kobe"
+    a["班级1"][202103] = "Curry"
+
+    a["班级2"] = make(map[int]string,3)
+    a["班级2"][202101] = "乔丹"
+    a["班级2"][202102] = "科比"
+    a["班级2"][202103] = "库里"
+
+    for k1,v1 := range a {
+        fmt.Println(k1)
+        for k2,v2 := range v1 {
+            fmt.Printf("学生学号为:%v,学生姓名为:%v\n",k2,v2)
+        }
+    }
+    // 学生学号为:202101,学生姓名为:Jordan
+    // 学生学号为:202102,学生姓名为:Kobe
+    // 学生学号为:202103,学生姓名为:Curry
+    // 班级2
+    // 学生学号为:202101,学生姓名为:乔丹
+    // 学生学号为:202102,学生姓名为:科比
+    // 学生学号为:202103,学生姓名为:库里
 }
