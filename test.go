@@ -1618,10 +1618,21 @@ type Player struct{
 // }
 
 // 结构体实例的创建:方式二
+// func main()  {
+//     // 创建球员结构体的实例、对象、变量：
+//     var t1 Player = Player{"Kobe",41,"Lakers"}
+//     fmt.Println(t1) // {Kobe 41 Lakers}
+//     fmt.Println(t1.Age + 10) // 51
+// }
+
+// 结构体实例的创建:方式三
 func main()  {
     // 创建球员结构体的实例、对象、变量：
-    var t1 Player = Player{"Kobe",41,"Lakers"}
-    fmt.Println(t1) // {Kobe 41 Lakers}
-    fmt.Println(t1.Age + 10) // 51
+    var t1 *Player = new(Player)
+    // t1是指针，t1其实指向的就是地址，应该给这个地址指向的对象的字段赋值
+    (*t1).Name = "Kobe"
+    (*t1).Age = 41 // *的作用：根据地址取值
+    // 为了符合程序员的编程习惯：go提供了简化的赋值方式
+    t1.Team = "Lakers"//go的编译器底层 t1.Team 转化为 (*t1).team
+    fmt.Println(*t1) // {Kobe 41 Lakers}
 }
-
