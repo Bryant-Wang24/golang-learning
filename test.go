@@ -1550,49 +1550,67 @@ import "fmt"
 //     fmt.Println(flag)  // true
 // }
 
+// func main()  {
+//     // 定义map
+//     b:=make(map[int]string)
+//     b[202101] = "张三"
+//     b[202102] = "李四"
+//     b[202103] = "王五"
 
+//     // 获取长度
+//     fmt.Println(len(b))// 3
+
+//     // 遍历
+//     for key,value := range b {
+//         fmt.Printf("key为%v,value为%v\n",key,value)
+//         // key为202101,value为张三
+//         // key为202102,value为李四
+//         // key为202103,value为王五
+//     }
+
+//     // map里面嵌套一个map
+//     a:=make(map[string]map[int]string)
+//     // 赋值
+//     a["班级1"] = make(map[int]string,3)
+//     a["班级1"][202101] = "Jordan"
+//     a["班级1"][202102] = "Kobe"
+//     a["班级1"][202103] = "Curry"
+
+//     a["班级2"] = make(map[int]string,3)
+//     a["班级2"][202101] = "乔丹"
+//     a["班级2"][202102] = "科比"
+//     a["班级2"][202103] = "库里"
+
+//     for k1,v1 := range a {
+//         fmt.Println(k1)
+//         for k2,v2 := range v1 {
+//             fmt.Printf("学生学号为:%v,学生姓名为:%v\n",k2,v2)
+//         }
+//     }
+//     // 学生学号为:202101,学生姓名为:Jordan
+//     // 学生学号为:202102,学生姓名为:Kobe
+//     // 学生学号为:202103,学生姓名为:Curry
+//     // 班级2
+//     // 学生学号为:202101,学生姓名为:乔丹
+//     // 学生学号为:202102,学生姓名为:科比
+//     // 学生学号为:202103,学生姓名为:库里
+// }
+
+// 面向对象：结构体的定义
+// 定义球员结构体，将球员的各个属性，统一放入结构体中管理
+type Player struct{
+    // 变量名字大写外界可以访问这个属性
+    Name string
+    Age int
+    Team string 
+}
 func main()  {
-    // 定义map
-    b:=make(map[int]string)
-    b[202101] = "张三"
-    b[202102] = "李四"
-    b[202103] = "王五"
-
-    // 获取长度
-    fmt.Println(len(b))// 3
-
-    // 遍历
-    for key,value := range b {
-        fmt.Printf("key为%v,value为%v\n",key,value)
-        // key为202101,value为张三
-        // key为202102,value为李四
-        // key为202103,value为王五
-    }
-
-    // map里面嵌套一个map
-    a:=make(map[string]map[int]string)
-    // 赋值
-    a["班级1"] = make(map[int]string,3)
-    a["班级1"][202101] = "Jordan"
-    a["班级1"][202102] = "Kobe"
-    a["班级1"][202103] = "Curry"
-
-    a["班级2"] = make(map[int]string,3)
-    a["班级2"][202101] = "乔丹"
-    a["班级2"][202102] = "科比"
-    a["班级2"][202103] = "库里"
-
-    for k1,v1 := range a {
-        fmt.Println(k1)
-        for k2,v2 := range v1 {
-            fmt.Printf("学生学号为:%v,学生姓名为:%v\n",k2,v2)
-        }
-    }
-    // 学生学号为:202101,学生姓名为:Jordan
-    // 学生学号为:202102,学生姓名为:Kobe
-    // 学生学号为:202103,学生姓名为:Curry
-    // 班级2
-    // 学生学号为:202101,学生姓名为:乔丹
-    // 学生学号为:202102,学生姓名为:科比
-    // 学生学号为:202103,学生姓名为:库里
+    // 创建球员结构体的实例、对象、变量：
+    var t1 Player
+    fmt.Println(t1) //{ 0 }  未赋值时的默认值：{ 0 }
+    t1.Name = "Kobe"
+    t1.Age = 41
+    t1.Team = "Lakers"
+    fmt.Println(t1) // {Kobe 41 Lakers}
+    fmt.Println(t1.Age + 10) // 51
 }
