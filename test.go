@@ -1604,13 +1604,24 @@ type Player struct{
     Age int
     Team string 
 }
+
+// 结构体实例的创建:方式一
+// func main()  {
+//     // 创建球员结构体的实例、对象、变量：
+//     var t1 Player
+//     fmt.Println(t1) //{ 0 }  未赋值时的默认值：{ 0 }
+//     t1.Name = "Kobe"
+//     t1.Age = 41
+//     t1.Team = "Lakers"
+//     fmt.Println(t1) // {Kobe 41 Lakers}
+//     fmt.Println(t1.Age + 10) // 51
+// }
+
+// 结构体实例的创建:方式二
 func main()  {
     // 创建球员结构体的实例、对象、变量：
-    var t1 Player
-    fmt.Println(t1) //{ 0 }  未赋值时的默认值：{ 0 }
-    t1.Name = "Kobe"
-    t1.Age = 41
-    t1.Team = "Lakers"
+    var t1 Player = Player{"Kobe",41,"Lakers"}
     fmt.Println(t1) // {Kobe 41 Lakers}
     fmt.Println(t1.Age + 10) // 51
 }
+
