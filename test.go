@@ -1640,9 +1640,9 @@ type Player struct{
 // 结构体实例的创建:方式四 &
 func main()  {
     // 创建球员结构体的实例、对象、变量：
-    var t1 *Player = &Player{}
-    (*t1).Name = "Kobe"
-    (*t1).Age = 41
-    t1.Team = "Lakers"
+    var t1 *Player = &Player{"Kobe",41,"Lakers"}
+    // (*t1).Name = "Kobe"
+    // (*t1).Age = 41
+    // t1.Team = "Lakers"
     fmt.Println(*t1) // {Kobe 41 Lakers}
 }
